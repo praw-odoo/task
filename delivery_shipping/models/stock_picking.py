@@ -1,7 +1,7 @@
 from odoo import api, fields, models
 import datetime
 
-class StockMove(models.Model):
+class StockPicking(models.Model):
     _inherit="stock.picking"
 
     appointment_date = fields.Datetime(string="Appointment Date",related='sale_id.appointment_date', compute="_compute_appointment_date", readonly=False)

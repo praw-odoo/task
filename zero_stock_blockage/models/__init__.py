@@ -1,1 +1,1 @@
-from . import sale_order_zero_stock_approval
+from . import sale_order

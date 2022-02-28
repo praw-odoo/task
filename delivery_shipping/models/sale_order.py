@@ -13,3 +13,9 @@ class SaleOrder(models.Model):
             if record.appointment_date and record.partner_id.days_to_deliver > 0 :
                 record.commitment_date = record.appointment_date - datetime.timedelta(days=record.partner_id.days_to_deliver)
 
+    def action_confirm(self):
+        print("confirm")
+        record = super(SaleOrder, self).action_confirm()
+        for data in self.picking_ids:
+            data.requested_date = self.requested_date
+        return record

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_sale_order_form_inherit_appointment_date" model="ir.ui.view">
+            <field name="name">name</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/> 
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="zero_stock_approval"/>
+                </xpath>
+                <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
+                    <attribute name="attrs">{'invisible' : [('zero_stock_approval','=','False')]}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="blockage_group_admin_1" model="ir.ui.view">
+            <field name="name">bloackage.admin</field>
+            <field name="model">sale.order</field>
+            <field name="priority">20</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="groups_id" eval="[(4,ref('sales_team.group_sale_manager'))]"/>
+            <field name="arch" type="xml">
+                <field name='zero_stock_approval' position="attributes">
+                    <attribute name="readonly">False</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record id="blockage_group_user_1" model="ir.ui.view">
+        <field name="name">bloackage.user</field>
+        <field name="model">sale.order</field>
+        <field name="priority">19</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="groups_id" eval="[(4,ref('sales_team.group_sale_salesman'))]"/>
+        <field name="arch" type="xml">
+            <field name='zero_stock_approval' position="attributes">
+                <attribute name="readonly">True</attribute>
+            </field>
+        </field>
+    </record>
+
+        </data>
+
+
+</odoo>
