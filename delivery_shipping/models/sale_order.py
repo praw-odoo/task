@@ -5,7 +5,7 @@ class SaleOrder(models.Model):
     _inherit="sale.order"
 
     appointment_date = fields.Datetime(string="Appointment Date")
-    commitment_date = fields.Datetime(readonly=False,compute='commute_commitment_date')
+    commitment_date = fields.Datetime(readonly=False, compute='commute_commitment_date')
 
     @api.depends("appointment_date")
     def commute_commitment_date(self):
