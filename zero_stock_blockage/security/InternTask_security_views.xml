@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        Categories
+        <!-- <record model="ir.module.category" id="module_category_sale_order">
+            <field name="name">sale permission</field>
+            <field name="description">helps to gives permisssion</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record model="ir.module.category" id="module_category_sale_order2">
+            <field name="name">Approval Permission</field>
+            <field name="description">helps to give approval permission</field>
+            <field name="parent_id" ref="module_category_sale_order"/>
+        </record> -->
+
+        <record id="group_sale_order_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="module_category_sale_order2"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_sale_order_admin_user" model="res.groups">
+            <field name="name">Administrator</field>
+            <field name="category_id" ref="module_category_sale_order2"/>
+            <field name="implied_ids" eval="[(4, ref('group_sale_order_user'))]"/>
+        </record>
+    </data>
+<odoo>
