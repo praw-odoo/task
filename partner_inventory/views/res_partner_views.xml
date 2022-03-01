@@ -7,8 +7,8 @@
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="account.view_account_position_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='picking_policy']" position="after">
-                    <field name="appointment_date"/>
+                <xpath expr="//notebook/page[@name='internal_notes']" position="after">
+                    <field name="Inventory" string="Inventory"/>
                 </xpath>
             </field>
         </record>

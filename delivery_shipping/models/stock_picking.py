@@ -4,7 +4,7 @@ import datetime
 class StockPicking(models.Model):
     _inherit="stock.picking"
 
-    appointment_date = fields.Datetime(string="Appointment Date",related='sale_id.appointment_date', compute="_compute_appointment_date", readonly=False)
+    appointment_date = fields.Datetime(string="Appointment Date", compute="_compute_appointment_date", readonly=False)
 
     @api.depends('sale_id', 'partner_id')
     def _compute_appointment_date(self):
