@@ -9,6 +9,7 @@
     'depends': ['contacts','product','sale','sale_management','stock'],
     'data':[
         'views/res_partner_views.xml',
+        'security/ir.model.access.csv'
         
     ],
     'demo': [],

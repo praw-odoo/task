@@ -2,13 +2,22 @@
 <odoo>
     <data>
 
-        <record id="res_partner_form_inherit_task6" model="ir.ui.view">
-            <field name="name">res.partner.form.inherit.task6</field>
+        <record id="res_partner_form_inherit" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit</field>
             <field name="model">res.partner</field>
-            <field name="inherit_id" ref="account.view_account_position_form"/>
+            <!-- <field name="inherit_id" ref="account.view_account_position_form"/> -->
+            <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//notebook/page[@name='internal_notes']" position="after">
-                    <field name="Inventory" string="Inventory"/>
+                <xpath expr="//page[@name='internal_notes']" position="after">
+                    <page name="Inventory" string="Inventory123">
+                        <field name="product_detail_list_ids">
+                            <tree>
+                                <field name="product_id"/>
+                                <field name="uom_id" domain="[('category_id','=',uom_category)]"/>
+                                <field name="uom_category" />
+                            </tree>
+                        </field>
+                    </page>
                 </xpath>
             </field>
         </record>
