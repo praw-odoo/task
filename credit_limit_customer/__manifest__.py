@@ -6,7 +6,7 @@
     'summary': 'modify credit_limit_customer',
     'description': "modify task 6",
     'website': 'http://www.odoo.com/task',
-    'depends': ['project'],
+    'depends': ['project', 'sale_management', 'account', 'contacts'],
     'data':[
         'views/res_partner_views.xml',
     ],

@@ -17,5 +17,5 @@ class SaleOrder(models.Model):
         print("confirm")
         record = super(SaleOrder, self).action_confirm()
         for data in self.picking_ids:
-            data.requested_date = self.requested_date
+            data.appointment_date = self.appointment_date
         return record

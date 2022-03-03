@@ -1,4 +1,3 @@
-from unittest import addModuleCleanup
 from odoo import api, fields, models
 from odoo.exceptions import UserError
 
