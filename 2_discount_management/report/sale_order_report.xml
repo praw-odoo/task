@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <template id="report_saleorder_document_inherit_sale_order" inherit_id="sale.report_saleorder_document"> 
+            <xpath expr="//table[@class='table table-sm o_main_table']//tr//th[@name='th_discount']" position="after">
+                    <th name="Second Discount">
+                        <span>2nd Disc.%</span>
+                    </th>
+            </xpath>
+            <xpath expr="//tbody[@class='sale_tbody']//tr//td[@t-if='display_discount']" position="after">
+                    <td name="display_discount2">
+                        <span t-field="line.secound_discount"/>
+                    </td> 
+            </xpath>
+        </template>
+    
+    </data>
+    
+
+</odoo>

@@ -10,6 +10,7 @@
     'data':[
         'views/sale_order_views.xml',
         'views/account_move_line_views.xml',
+        'report/sale_order_report.xml'
     ],
     'demo': [],
     #'installable': True,
