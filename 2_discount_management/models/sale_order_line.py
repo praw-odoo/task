@@ -17,7 +17,6 @@ class SaleOrderLine(models.Model):
     def _prepare_invoice_line(self, **optional_values):
         values = super(SaleOrderLine, self)._prepare_invoice_line()
         values['secound_discount'] = self.secound_discount
-        values['price_subtotal'] = self.price_subtotal
         return values
 
     # def _prepare_invoice_line(self, optional_values):
