@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    
+            <record id="customer_sequence" model="ir.sequence">
+                <field name="name">customer sequence</field>
+                <field name="code">customer.sequence</field>
+                <field name="number_next_actual">001</field>
+                <field name="prefix">CS</field>
+                <field name="padding">1</field>
+            </record>
+
+            <record id="supplier_sequence" model="ir.sequence">
+                <field name="name">supplier sequence</field>
+                <field name="code">supplier.sequence</field>
+                <field name="number_next_actual">001</field>
+                <field name="prefix">SS</field>
+                <field name="padding">1</field>
+            </record>
+
+            <record id="seq_id" model="ir.sequence">
+                <field name="name">Product Sequence</field>
+                <field name="code">category.sequence</field>
+                <field name="number_next_actual">001</field>
+                <field name="prefix">ProductSequence</field>
+                <field name="padding">1</field>
+            </record>
+
+    </data>
+    
+</odoo>

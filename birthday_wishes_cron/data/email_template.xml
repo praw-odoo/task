@@ -1,0 +1,19 @@
+<odoo>
+    <data noupdate="1">
+        <!--Email template -->
+        <record id="email_template" model="mail.template">
+            <field name="name">Email Template</field>
+            <field name="model_id" ref="model_hr_employee"/>
+            <field name="email_from">{{(object.company_id.email)}}</field>
+            <field name="email_to" >{{object.work_email}}</field>
+            <field name="subject">Birthday Wishes</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="lang">{{object.lang}}</field>
+            <field name="body_html" type="html">
+                <p>Hello,</p>
+                <br/>
+                <p>Happy Birthday <strong t-out=" object.name" /></p>
+            </field>
+        </record>
+    </data>
+</odoo>

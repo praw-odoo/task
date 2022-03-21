@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+<!--         
+        <record id="start_workorder_form" model="ir.ui.view">
+            <field name="name">start.workorder.form</field>
+            <field name="model">mrp.workorder</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <label string="are u sure ?"/>
+                    </group>
+                    
+                </form>
+            </field>
+        </record> -->
+
+        <!-- <record id="action_start_workorder_wizard" model="ir.actions.act_window">
+            <field name="name">Start Timer</field>
+            <field name="res_model">mrp.workorder</field>
+            <field name="view_mode">tree</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="start_workorder_form"/>
+        </record> -->
+
+        <!-- <record id="action_start_workorder_wizard" model="ir.actions.act_window">
+            <field name="name">Start Timer</field>
+            <field name="res_model">mrp.workorder</field>
+            <field name="view_mode">List</field>
+            <field name="target">new</field>
+        </record> -->
+
+        <!-- <act_window name="Start Timer"
+            id="action_start_workorder_wizard"
+            res_model="mrp.workorder"
+            binding_model="mrp.workorder"
+            binding_views="list"
+            view_mode="list"
+            target="new"
+        />
+
+        <act_window name="Stop Timer"
+            id="action_stop_workorder_wizard"
+            res_model="mrp.workorder"
+            binding_model="mrp.workorder"
+            binding_views="list"
+            view_mode="list"
+            target="new"
+        />
+
+        <act_window name="Done"
+            id="action_done_wizard"
+            res_model="mrp.workorder"
+            binding_model="mrp.workorder"
+            binding_views="list"
+            view_mode="list"
+            target="new"
+        /> -->
+
+        <record id="action_start" model="ir.actions.server">
+            <field name="name">Start Timer</field>
+            <field name="model_id" ref="model_mrp_workorder"/>
+            <field name="binding_model_id" ref="model_mrp_workorder"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">
+                for record in records:
+                    record.button_start()
+            </field>
+        </record> 
+
+        <record id="action_stop" model="ir.actions.server">
+            <field name="name">Stop Timer</field>
+            <field name="model_id" ref="model_mrp_workorder"/>
+            <field name="binding_model_id" ref="model_mrp_workorder"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">
+                for record in records:
+                    record.button_finish()
+            </field>
+        </record> 
+
+        <record id="action_done" model="ir.actions.server">
+            <field name="name">Done</field>
+            <field name="model_id" ref="model_mrp_workorder"/>
+            <field name="binding_model_id" ref="model_mrp_workorder"/>
+            <field name="binding_view_types">list</field>
+            <field name="state">code</field>
+            <field name="code">
+                for record in records:
+                    record.button_done()
+            </field>
+        </record> 
+
+    </data>
+</odoo>
