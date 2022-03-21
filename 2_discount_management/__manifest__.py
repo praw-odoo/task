@@ -2,7 +2,7 @@
     'name': 'credit_limit_customer',
     'version': '1.0',
     'category': 'Tools',
-    'sequence': -15,
+    'sequence': 15,
     'summary': 'modify credit_limit_customer',
     'description': "modify task 6",
     'website': 'http://www.odoo.com/task',

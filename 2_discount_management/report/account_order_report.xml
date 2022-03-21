@@ -5,14 +5,14 @@
     
         <template id="report_report_invoice_document_inherit" inherit_id="account.report_invoice_document"> 
             <xpath expr="//th[@name='th_price_unit']" position="after">
-                    <th name="Second Discount">
-                        <span>2nd Disc.%</span>
-                    </th>
+                <th name="Second Discount">
+                    <span>2nd Disc.%</span>
+                </th>
             </xpath>
             <xpath expr="//td[@t-if='display_discount']" position="after">
-                    <td name="display_discount2">
-                        <span t-field="line.secound_discount"/>
-                    </td> 
+                <td name="display_discount2">
+                    <span t-field="line.secound_discount"/>
+                </td> 
             </xpath>
         </template>
 

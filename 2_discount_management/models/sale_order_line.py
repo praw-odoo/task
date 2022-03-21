@@ -1,4 +1,3 @@
-from optparse import Values
 from odoo import api, models, fields
 
 class SaleOrderLine(models.Model):
@@ -18,19 +17,3 @@ class SaleOrderLine(models.Model):
         values = super(SaleOrderLine, self)._prepare_invoice_line()
         values['secound_discount'] = self.secound_discount
         return values
-
-    # def _prepare_invoice_line(self, optional_values):
-
-    #     values = super(SaleOrderLine, self)._prepare_invoice_line(optional_values)
-    #     values['discount_2'] = self.discount_2
-    #     print("\nvalue**",values)
-
-    #     return values
-
-    # @api.onchange('discount','secound_discount','tax_id','price_unit','product_uom_qty')
-    # def _check_secound_discount(self):
-    #     print("\n\n\n hello")
-    #     if self.secound_discount != 0:
-    #         self.price_subtotal = self.price_subtotal - (self.price_subtotal*(self.secound_discount/100))
-    #     else :
-    #         self.price_subtotal = self.price_unit - (self.price_unit*(self.discount/100))
