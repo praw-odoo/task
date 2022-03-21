@@ -1,5 +1,5 @@
 {
-    'name': "Birthday Wishes",
+    'name': "Birthday Wishes employees",
 
     'summary': """
         This module is to schedule action for birthday wishes.
@@ -11,11 +11,12 @@
     'author': 'Odoo Ps',
     'version': '1.0.0',
 
-    'depends': [],
+    'depends': ['mail','hr'],
 
     'data': [
-        "data/cron_demo.xml",
-        "security/ir.model.access.csv",
+        "data/hr_employee.xml",
+        "data/email_template.xml",
+        #"security/ir.model.access.csv",
     ],
 
     'installable': True,
