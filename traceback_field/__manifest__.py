@@ -1,12 +1,12 @@
 {
-    'name': "start_stop_order",
+    'name': "Traceback Field",
 
     'summary': """
-        This module is to start stop timer for manufacturing.
+        This module is to Traceback Field in mrp.
     """,
 
     'description': """
-        This module is to create action in mrp
+        Traceback Field in mrp
     """,
     'author': 'Odoo Ps',
     'version': '1.0.0',
@@ -14,7 +14,7 @@
     'depends': ['mrp'],
 
     'data': [
-        'wizard/mrp_workorder_view.xml',
+        "views/mrp_production_views.xml"
     ],
 
     'installable': True,

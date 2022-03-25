@@ -9,7 +9,6 @@ class HrEmployee(models.Model):
         print("\n\n***********@@@@@@@@@@ happy birthday @@@@@@@@@@***********\n\n")
         employee_ids = self.search([('birthday','=',datetime.today())])
         
-        # employee_ids = self.browse([100,101])
         for employee in employee_ids:
             print("\n\n employee_ids : ",employee.name)
             mail_template = self.env.ref('birthday_wishes_cron.email_template')
