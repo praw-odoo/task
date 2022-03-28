@@ -1,7 +1,10 @@
+from odoo import api, models, fields
 from odoo.http import request
 from odoo.tools.json import scriptsafe as json_scriptsafe
 
-class callingMaethod(object):
+class Website(models.Model):
+    _inherit = "website"
+
     # def sale_get_order(self, force_create=False, code=None, update_pricelist=False, force_pricelist=False):
     #     print("\n\n sale_get_order in inherit")
     #     res = super().sale_get_order(force_create=False, code=None, update_pricelist=False, force_pricelist=False)

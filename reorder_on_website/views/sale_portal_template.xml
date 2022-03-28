@@ -7,7 +7,7 @@
         </xpath>
         <xpath expr="//tr/td[4]" position="after">
             <td class="text-right">
-                <button name="action_reorder" type="button" class="btn-primary" >Reorder</button>
+                <button name="cart_update" type="action" class="btn-primary" >Reorder</button>
             </td>
         </xpath>
     </template>
