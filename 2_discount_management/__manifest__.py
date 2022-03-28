@@ -14,8 +14,6 @@
         'report/account_order_report.xml',
     ],
     'demo': [],
-    #'installable': True,
-    'application': False,
-    'auto_install': False,
+    'installable': True,
     'license': 'LGPL-3'
 }
