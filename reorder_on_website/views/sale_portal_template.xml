@@ -7,7 +7,7 @@
         </xpath>
         <xpath expr="//tr/td[4]" position="after">
             <td class="text-right">
-                <button name="cart_update" type="action" class="btn-primary" >Reorder</button>
+                <a name="add_in_cart"  t-att-href="'/reorder?order_id=%s'% order.id" class="btn btn-primary btn_cta">Reorder</a>
             </td>
         </xpath>
     </template>

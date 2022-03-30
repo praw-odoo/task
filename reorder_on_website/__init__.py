@@ -1,2 +1,2 @@
-from . import models
+# from odoo import models
 from . import controllers

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_recruitment.menu_crm_case_categ_all_app" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('hr_recruitment.group_hr_recruitment_manager'))]"/>
+        </record>
+    </data>
+</odoo>
