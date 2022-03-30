@@ -5,6 +5,9 @@ from odoo.exceptions import UserError
 class ProdTemp(models.TransientModel):
     _name = "prod.temp"
 
+    '''
+    field declaration
+    '''
     quantity = fields.Float(default=1)
     unit_of_measure_id = fields.Many2one('uom.uom')
     scheduled_date = fields.Datetime(default=datetime.now())
@@ -12,6 +15,9 @@ class ProdTemp(models.TransientModel):
     # method to get default value of uom
     @api.model
     def default_get(self, fields):
+        '''
+        this method helps to get default uom from product.template
+        '''
         active_id = self._context.get('active_id')
         res = super(ProdTemp, self).default_get(fields)
         uom_id = self.env['product.template'].browse(active_id).uom_po_id.id
@@ -20,6 +26,9 @@ class ProdTemp(models.TransientModel):
 
     #method for creating request for quotation
     def request_for_quotation(self):
+        '''
+        this method create request for quotation from the values from wizard
+        '''
         active_id = self._context.get('active_id')
         product = self.env['product.template'].browse(active_id)
         product_supplierinfo_id = product.product_variant_id._select_seller(quantity=self.quantity,uom_id=self.unit_of_measure_id,date=self.scheduled_date)

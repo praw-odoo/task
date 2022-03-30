@@ -11,7 +11,7 @@
     'author': 'Odoo Ps',
     'version': '1.0.0',
 
-    'depends': ['hr_recruitment'],
+    'depends': ['hr_recruitment','mail'],
 
     'data': [
         "security/group_hr_recruitment_user_security.xml",

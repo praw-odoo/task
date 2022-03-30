@@ -2,11 +2,10 @@
 <odoo>
     <data>
     
-        <record id="view_partner_form_inherit_task6" model="ir.ui.view">
-            <field name="name">view.partner.form.inherit.task6</field>
+        <record id="view_partner_form_inherit_delivery_shipping" model="ir.ui.view">
+            <field name="name">view.partner.form.inherit.delivery.shipping</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="product.view_partner_property_form"/>
-        
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='property_product_pricelist']" position="after">
                     <field name="days_to_deliver"/>

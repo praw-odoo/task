@@ -5,6 +5,9 @@ class ResPartner(models.Model):
     
     @api.model
     def create(self,vals):
+        '''
+        this method helps to assign customer and supplier sequence
+        '''
         if vals.get('customer_rank') >= 1:
             vals['ref'] = self.env['ir.sequence'].next_by_code('customer.sequence')
         elif vals.get('supplier_rank') >= 1:

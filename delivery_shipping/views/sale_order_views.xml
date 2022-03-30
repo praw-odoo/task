@@ -2,8 +2,8 @@
 <odoo>
     <data>
 
-        <record id="sale_order_form_inherit_task6" model="ir.ui.view">
-            <field name="name">sale.order.form.inherit.task6</field>
+        <record id="view_order_form_inherit_sale_stock_inherit_delivery_shipping" model="ir.ui.view">
+            <field name="name">sview.order.form.inherit.sale.stock.form.inherit.delivery.shipping</field>
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale_stock.view_order_form_inherit_sale_stock"/>
             <field name="arch" type="xml">

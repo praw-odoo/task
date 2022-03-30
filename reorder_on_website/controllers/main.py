@@ -4,6 +4,9 @@ class CallingCartUpdate(http.Controller):
 
     @http.route('/reorder', type='http', auth="user", website=True)
     def add_in_cart(self,**kwargs):
+        '''
+        this method get the order id from website and add products to cart
+        '''
         old_order = http.request.env['sale.order'].browse(int(kwargs.get('order_id')))
         new_order = http.request.website.sale_get_order(force_create=True)
         # new_order.order_line.unlink()

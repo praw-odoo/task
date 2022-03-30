@@ -5,6 +5,10 @@ class ProductTemplate(models.Model):
     
     @api.model
     def create(self,vals):
+        '''
+        this method helps to assign sequence to product when assign_sequence is true
+        or when parent_id has sequence it assigns that next sequence according to that 
+        '''
         res = super(ProductTemplate, self).create(vals)
         if res.categ_id.assign_sequence == True :
             res.default_code = res.categ_id.seq_id.next_by_id()
