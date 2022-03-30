@@ -14,8 +14,7 @@
     'depends': ['website','sale_management'],
 
     'data': [
-        "views/sale_portal_template.xml"
-        
+        "views/sale_portal_template.xml",
     ],
 
     'installable': True,

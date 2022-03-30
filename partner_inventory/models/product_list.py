@@ -5,6 +5,9 @@ class ProductList(models.Model):
     _name="product.list"
     _description = "productlist"
 
+    '''
+    field declaration
+    '''
     product_id = fields.Many2one("product.product")
     uom_id = fields.Many2one("uom.uom", domain="[('category_id','=',uom_category)]")
     partner_id = fields.Many2one("res.partner")

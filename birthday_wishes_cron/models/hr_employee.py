@@ -6,6 +6,10 @@ class HrEmployee(models.Model):
     _inherit = "hr.employee"
 
     def birthday_wishes(self):
+        '''
+        this method helps to find employees whose birthday is today and sends mail to that 
+        employees for wishing birthday
+        '''
         print("\n\n***********@@@@@@@@@@ happy birthday @@@@@@@@@@***********\n\n")
         employee_ids = self.search([('birthday','=',datetime.today())])
         

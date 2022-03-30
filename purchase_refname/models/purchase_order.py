@@ -4,8 +4,9 @@ class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
     def _prepare_picking(self):
+        '''
+        this method helps to send to send the value of origin
+        '''
         values = super()._prepare_picking()
-        print("\n\n sdfghjkdfghjkldfghjk",values)
         values['origin'] = self.name + "(" + self.partner_ref + ")"
-        print("\n\n ert6yuioptyuiop",values['origin'])
         return values

@@ -6,6 +6,11 @@ class SaleOrder(models.Model):
 
     @api.constrains("amount_total")
     def _check_total_sale(self):
+        '''
+        *****Python constrains*****
+        this methods helps to check wether the total amount is greater than credit limit
+        so that partner cannot buy more than credit limit
+        '''
         print("\n\n\n\n ",self.tax_totals_json)
         total_amount = self.amount_total + self.partner_id.credit
         if total_amount > self.partner_id.credit_limit:
