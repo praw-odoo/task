@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_template_form_view_inherit_sale_invoice_button" model="ir.ui.view">
+        <field name="name">product.template.form.view.inherit.sale.invoice.button</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='purchase_ok']" position="after">
+                <span class="d-inline-block">
+                    <field name="is_insurance"/>
+                    <label for="is_insurance"/>
+                </span>
+            </xpath>
+
+            <xpath expr="//label[@for='list_price']" position="before">
+                <label for="percent_cost_based_on" class="mt-1" attrs="{'invisible': [('is_insurance','!=', True)]}"/>
+                <div name="percent_applicable" attrs="{'invisible': [('is_insurance','!=', True)]}">
+                    <field name="percent_cost_based_on" attrs="{'required': [('is_insurance','=', True)]}"/>
+                </div>
+                <label for="percent_applicable" class="mt-1"
+                       attrs="{'invisible': [('is_insurance','!=', True)]}"/>
+                <div name="percent_applicable" attrs="{'invisible': [('is_insurance','!=', True)]}">
+                    <field name="percent_applicable" widget="percentage" class="oe_inline"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

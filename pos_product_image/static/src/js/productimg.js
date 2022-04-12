@@ -6,7 +6,7 @@ odoo.define("pos_customer.onclickpop", function (require) {
         class extends ProductScreen {
             _onClickPay()
             {
-                var currentClient = this.currentOrder.get_client();
+                const currentClient = this.currentOrder.get_client();
                 if (currentClient)
                 {
                     this.showScreen('PaymentScreen');
