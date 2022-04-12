@@ -25,11 +25,6 @@ class ProdTemp(models.TransientModel):
         """
         this method create request for quotation from the values from wizard
         """
-        # taxes = product.percent_applicable
-        # print("\n\n taxes", taxes)
-        # if taxes and self.move_id.fiscal_position_id:
-        #     taxes = self.move_id.fiscal_position_id.map_tax(taxes)
-        #     self.tax_ids = taxes
 
         val_list = {
             "product_id": self.product_id.id,
