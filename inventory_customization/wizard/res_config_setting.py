@@ -3,6 +3,9 @@ from odoo import models, fields,api
 class ResConfigSetting(models.TransientModel):
     _inherit="res.config.settings"
 
+    '''
+    field declaration
+    '''
     is_check = fields.Boolean(readonly=False)
 
     def set_values(self):

@@ -3,8 +3,7 @@
     'version': '1.0',
     'category': 'Tools',
     'sequence': 15,
-    'summary': 'modify zero_stock_blockage',
-    'description': "modify task 7",
+    'description': "helps to show field only to admo=in",
     'website': 'http://www.odoo.com/task6',
     'depends': ['contacts','product','sale','sale_management','stock'],
     'data':[

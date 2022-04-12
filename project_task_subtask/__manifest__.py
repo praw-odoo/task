@@ -4,7 +4,7 @@
     'category': 'Tools',
     'sequence': 15,
     'summary': 'modify project_task_subtask',
-    'description': "modify task 6",
+    'description': "show subtask in task",
     'website': 'http://www.odoo.com/task8',
     'depends': ['project'],
     'data':[

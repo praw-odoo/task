@@ -1,12 +1,8 @@
 {
     'name': "inventory customization",
 
-    'summary': """
-        This module is to inventory customization.
-    """,
-
     'description': """
-        inventory customization
+        helps to add followers from particular group
     """,
     'author': 'Odoo Ps',
     'version': '1.0.0',

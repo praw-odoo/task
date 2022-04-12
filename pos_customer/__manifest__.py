@@ -2,7 +2,7 @@
     'name': "pos_customer",
 
     'summary': """
-        This module is to pos_customer.
+        This module is to pop up when customer not selected.
     """,
 
     'description': """

@@ -3,8 +3,8 @@
 
     <data>
     
-        <record id="res_partner_inherit" model="ir.ui.view">
-            <field name="name">res.partner.inherit</field>
+        <record id="view_partner_form_inherit_credit_limit_customer" model="ir.ui.view">
+            <field name="name">view.partner.form.inherit.credit.limit.customer</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">

@@ -6,7 +6,7 @@
     """,
 
     'description': """
-        pos_zip
+        helps to show zip from selected partner in pos
     """,
     'author': 'Odoo Ps',
     'version': '15.0.1.0.0',

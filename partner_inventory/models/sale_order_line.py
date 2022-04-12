@@ -5,7 +5,6 @@ class SaleOrderLine(models.Model):
 
     @api.onchange('product_id')
     def product_id_change(self):
-        print("\n\n\n\ aaa")
         res = super().product_id_change()
         for line in self:
             if line.order_id.partner_id:

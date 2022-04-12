@@ -14,7 +14,6 @@
     'depends': ['sale_management','contacts'],
 
     'data': [
-        #"views/sale_order_views.xml"
     ],
 
     'installable': True,

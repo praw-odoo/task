@@ -2,9 +2,9 @@
 
 <odoo>
 
-    <record id="prject_task_kanban_view_inherited" model="ir.ui.view">
+    <record id="view_task_kanban_view_inherited_project_task_subtask" model="ir.ui.view">
     
-        <field name="name">project.task.kanban.view.inherited</field>
+        <field name="name">project.task.kanban.view.inherited.project.task.subtask</field>
         <field name="model">project.task</field>
         <field name="inherit_id" ref="project.view_task_kanban"/>
         <field name="arch" type="xml">

@@ -2,7 +2,7 @@
     'name': "req quo",
 
     'summary': """
-        This module is to Reorder Website.
+        helps to create quotation from wizard.
     """,
 
     'description': """

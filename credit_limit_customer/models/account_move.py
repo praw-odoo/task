@@ -7,7 +7,6 @@ class AccountMove(models.Model):
     @api.constrains("amount_total")
     def _check_total_invoice(self):
         '''
-        *****Python constrains*****
         this method helps to check weather total recivable amount is greter then credit 
         limit of customer so that partner cannot get greater than credit limit
         '''

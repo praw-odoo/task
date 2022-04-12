@@ -6,7 +6,7 @@ class AccountMoveLine(models.Model):
     '''
     field declaration
     '''
-    secound_discount = fields.Float()
+    secound_discount = fields.Float(string="2 disc")
 
     def _get_price_total_and_subtotal_model(self, price_unit, quantity, discount, currency, product, partner, taxes, move_type):
         '''

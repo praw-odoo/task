@@ -6,7 +6,7 @@
     """,
 
     'description': """
-        This module is to create field in contact
+        This module create a boolean field in contact.
     """,
     'author': 'Odoo Ps',
     'version': '1.0.0',

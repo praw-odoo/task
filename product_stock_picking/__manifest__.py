@@ -4,7 +4,7 @@
     'category': 'Tools',
     'sequence': -15,
     'summary': 'modify product_stock_picking',
-    'description': "update product_stock_picking",
+    'description': "helps to get product",
     'website': 'http://www.odoo.com/task',
     'depends': ['sale_management','account','stock'],
     'data':[

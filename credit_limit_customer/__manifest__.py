@@ -3,14 +3,12 @@
     'version': '1.0',
     'category': 'Tools',
     'sequence': 15,
-    'summary': 'modify credit_limit_customer',
-    'description': "modify task 6",
+    'description': " this module create modify credit_limit_customer",
     'website': 'http://www.odoo.com/task',
     'depends': ['project', 'sale_management', 'account', 'contacts'],
     'data':[
         'views/res_partner_views.xml',
     ],
-    'demo': [],
     'installable': True,
     'license': 'LGPL-3'
 }

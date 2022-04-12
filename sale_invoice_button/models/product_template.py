@@ -5,7 +5,7 @@ class ProductTemplate(models.Model):
     _inherit = "product.template"
 
     '''
-
+    field declaration
     '''
     is_insurance = fields.Boolean()
     percent_cost_based_on = fields.Selection([
@@ -16,7 +16,6 @@ class ProductTemplate(models.Model):
 
     @api.constrains('is_insurance')
     def _check_is_insurance(self):
-
         for product in self:
             if product.is_insurance and product.detailed_type != 'service':
                 raise ValidationError(('You cannot apply insurance if product type is not service'))

@@ -2,7 +2,7 @@
     'name': "sale_invoice_button",
 
     'summary': """
-        This module is to sale_invoice_button.
+        This module is to show payslip in website.
     """,
 
     'description': """

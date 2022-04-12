@@ -2,14 +2,13 @@
 <odoo>
     <data>
 
-        <record id="res_partner_form_inherit" model="ir.ui.view">
-            <field name="name">res.partner.form.inherit</field>
+        <record id="view_partner_form_inherit_partner_inventory" model="ir.ui.view">
+            <field name="name">view.partner.form.inherit.partner.inventory</field>
             <field name="model">res.partner</field>
-            <!-- <field name="inherit_id" ref="account.view_account_position_form"/> -->
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//page[@name='internal_notes']" position="after">
-                    <page name="Inventory" string="Inventory123">
+                    <page name="Inventory" string="Inventory">
                         <field name="product_detail_list_ids">
                             <tree>
                                 <field name="product_id"/>

@@ -2,7 +2,7 @@
     'name': "sale namezip",
 
     'summary': """
-        This module is to sale namezip.
+        This module is to search product from customer in so.
     """,
 
     'description': """

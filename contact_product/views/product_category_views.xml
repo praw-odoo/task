@@ -3,22 +3,18 @@
 
     <data>
     
-        <record id="view_product_category_inherit_" model="ir.ui.view">
-            <field name="name">view.product.category.form.inherit</field>
+        <record id="product_category_form_view_inherit_contact_product" model="ir.ui.view">
+            <field name="name">view.product.category.form.inherit.contact.product</field>
             <field name="model">product.category</field>
             <field name="inherit_id" ref="product.product_category_form_view"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='parent_id']" position="after">
-                    
-                    <!-- <group name="first" col="2"> -->
                     <field name="assign_sequence" />
                     <field name="seq_id" attrs="{'readonly':[('assign_sequence','=',False)]}" style="width:22%;"/>
-                    <!-- </group> -->
                 </xpath>
             </field>
         </record>
-    
+
     </data>
-    
 
 </odoo>

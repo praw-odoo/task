@@ -17,7 +17,4 @@ class SaleOrderLine(models.Model):
         '''
         for record in self:
             record.product_ids = record.move_ids_without_package.product_id.ids
-            print("sys1", sys.getsizeof(record.move_ids_without_package.product_id.ids))
-            print("sys2",sys.getsizeof(record.move_ids_without_package.product_id))
-            print("\n\n\n ------------------------------------")
 

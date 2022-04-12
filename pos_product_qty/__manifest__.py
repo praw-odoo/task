@@ -2,7 +2,7 @@
     'name': "pos_product_qty",
 
     'summary': """
-        This module is to pos_product_qty.
+        This module is to add and subtract pos product qty.
     """,
 
     'description': """
