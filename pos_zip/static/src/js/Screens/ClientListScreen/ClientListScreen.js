@@ -25,7 +25,6 @@ odoo.define("pos_customer.onclickpop", function (require) {
                 args: [[currentClient.id], { zip: payload }],
                 context: this.env.session.user_context,
               }).then(function (e) {
-                console.log("e", e);
                 // self.env.pos.load_new_partners();
                 // self.currentOrder.get_client();
                 await this.env.pos.load_new_partners();
