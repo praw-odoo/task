@@ -6,7 +6,7 @@
     """,
 
     'description': """
-        Reorder in Website
+        Reorder in Website to product from order to cart
     """,
     'author': 'Odoo Ps',
     'version': '1.0.0',

@@ -7,8 +7,8 @@ class ContractPriceDetails(models.Model):
     '''
     field declaration
     '''
-    partner_id = fields.Many2one('res.partner')
-    date_from = fields.Date()
-    date_to = fields.Date()
-    contract_price = fields.Float()
-    product_id = fields.Many2one('product.template')
+    partner_id = fields.Many2one('res.partner', string="Partner id")
+    date_from = fields.Date(string="Date From")
+    date_to = fields.Date(string="Date To")
+    contract_price = fields.Float(string="Contract Price")
+    product_id = fields.Many2one('product.template', string="Product id")

@@ -17,6 +17,4 @@ class SaleOrderLine(models.Model):
         end_dt = self.order_id.partner_id.contract_ids[last_cont-1].date_to
         for contract in self.order_id.partner_id.contract_ids.filtered(lambda x: x.product_id.id==self.product_id.product_tmpl_id.id and st_dt >= datetime.today().date() or end_dt <= datetime.today().date()):
             self.price_unit = contract.contract_price
-            print("\n\n self.price_unit",self.price_unit)
-            print("\n\n",contract.contract_price)
         return res

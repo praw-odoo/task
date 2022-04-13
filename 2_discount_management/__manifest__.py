@@ -1,10 +1,9 @@
 {
-    'name': 'credit_limit_customer',
+    'name': 'credit limit customer',
     'version': '1.0',
     'category': 'Tools',
     'sequence': 15,
-    'summary': 'modify credit_limit_customer',
-    'description': "modify task 6",
+    'description': "this module helps to calculate secound discount on product",
     'website': 'http://www.odoo.com/task',
     'depends': ['sale_management', 'account'],
     'data':[
@@ -13,7 +12,6 @@
         'report/sale_order_report.xml',
         'report/account_order_report.xml',
     ],
-    'demo': [],
     'installable': True,
     'license': 'LGPL-3'
 }

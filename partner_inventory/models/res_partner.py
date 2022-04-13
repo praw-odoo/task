@@ -6,4 +6,4 @@ class ResPartner(models.Model):
     '''
     field declaration
     '''
-    product_detail_list_ids = fields.One2many(comodel_name='product.list', inverse_name="partner_id", string="Product Uom")
+    product_detail_list_ids = fields.One2many(string="Product Detail List ids", comodel_name='product.list', inverse_name="partner_id", string="Product Uom")

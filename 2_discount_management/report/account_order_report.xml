@@ -3,7 +3,7 @@
 
     <data>
     
-        <template id="report_report_invoice_document_inherit" inherit_id="account.report_invoice_document"> 
+        <template id="report_invoice_document_inherit_2_discount_management" inherit_id="account.report_invoice_document"> 
             <xpath expr="//th[@name='th_price_unit']" position="after">
                 <th name="Second Discount">
                     <span>2nd Disc.%</span>

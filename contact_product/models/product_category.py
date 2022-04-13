@@ -6,5 +6,5 @@ class ResPartner(models.Model):
     '''
     field declaration
     '''
-    assign_sequence = fields.Boolean()
-    seq_id = fields.Many2one("ir.sequence")
+    assign_sequence = fields.Boolean(string="Assign Seq")
+    seq_id = fields.Many2one("ir.sequence", string="Seq id")

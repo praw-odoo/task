@@ -8,7 +8,7 @@ class ProductList(models.Model):
     '''
     field declaration
     '''
-    product_id = fields.Many2one("product.product")
-    uom_id = fields.Many2one("uom.uom", domain="[('category_id','=',uom_category)]")
-    partner_id = fields.Many2one("res.partner")
-    uom_category = fields.Many2one(related="product_id.uom_id.category_id")
+    product_id = fields.Many2one("product.product", string="Product id")
+    uom_id = fields.Many2one("uom.uom", string="Uom id", domain="[('category_id','=',uom_category)]")
+    partner_id = fields.Many2one("res.partner", string="Partner id")
+    uom_category = fields.Many2one(string="Uom Category", related="product_id.uom_id.category_id")

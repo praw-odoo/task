@@ -6,7 +6,7 @@
     """,
 
     'description': """
-        hide all applications
+        check users has particular group permission
     """,
     'author': 'Odoo Ps',
     'version': '1.0.0',

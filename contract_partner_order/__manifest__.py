@@ -1,12 +1,8 @@
 {
-    'name': "contracts",
-
-    'summary': """
-        This module is to Traceback Field in mrp.
-    """,
+    'name': "contract partner order",
 
     'description': """
-        Traceback Field in mrp
+        make field price in sale order according to define in contacts
     """,
     'author': 'Odoo Ps',
     'version': '1.0.0',

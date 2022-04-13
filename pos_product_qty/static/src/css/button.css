@@ -1,0 +1,28 @@
+.minus-button {
+    position: absolute;
+    top: 2px;
+    left: 43px;
+    font-size: 13px;
+    border-radius: 2px;
+    background-color: #7f82ac;
+    color: white;
+    padding: 1px;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;}
+
+.plus-button{position: absolute;
+    top: 2px;
+    left: 24px;
+    font-size: 13px;
+    border-radius: 2px;
+    background-color: #7f82ac;
+    color: white;
+    padding: 1px;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;}

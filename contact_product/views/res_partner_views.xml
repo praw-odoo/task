@@ -3,8 +3,8 @@
 
     <data>
     
-        <record id="view_partner_form_inherit_contacts" model="ir.ui.view">
-            <field name="name">view.partner.form.inherit.contacts</field>
+        <record id="view_partner_form_inherit_contact_product" model="ir.ui.view">
+            <field name="name">view.partner.form.inherit.contact.product</field>
             <field name="model">res.partner</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">

@@ -1,13 +1,10 @@
 {
     'name': "Birthday Wishes employees",
 
-    'summary': """
-        This module is to schedule action for birthday wishes.
+    'description': """
+        This module is schedule action for birthday wishes of employees
     """,
 
-    'description': """
-        birthday wishes after interval
-    """,
     'author': 'Odoo Ps',
     'version': '1.0.0',
 
@@ -16,7 +13,7 @@
     'data': [
         "data/hr_employee.xml",
         "data/email_template.xml",
-        #"security/ir.model.access.csv",
+        # "security/ir.model.access.csv",
     ],
 
     'installable': True,

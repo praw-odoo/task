@@ -1,4 +1,4 @@
-from odoo import api, fields, models
+from odoo import fields, models
 
 class ResPartner(models.Model):
     _inherit = "res.partner"
@@ -6,4 +6,4 @@ class ResPartner(models.Model):
     '''
     field declaration
     ''' 
-    to_confirm = fields.Boolean()
+    to_confirm = fields.Boolean(string="To Confirm")

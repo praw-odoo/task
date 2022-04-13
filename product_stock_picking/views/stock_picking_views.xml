@@ -3,8 +3,8 @@
 
     <data>
     
-        <record id="view_tree_inherit_vpicktree" model="ir.ui.view">
-            <field name="name">view.tree.inherit.vpicktree</field>
+        <record id="vpicktree_inherit_product_stock_picking" model="ir.ui.view">
+            <field name="name">vpicktree.inherit.product.stock.picking</field>
             <field name="model">stock.picking</field>
             <field name="inherit_id" ref="stock.vpicktree"/>
             <field name="arch" type="xml">

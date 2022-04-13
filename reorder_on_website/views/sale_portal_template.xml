@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <template id="template_document_inherit" inherit_id="sale.portal_my_orders">
+    <template id="portal_my_orders_inherit_reorder_on_website" inherit_id="sale.portal_my_orders">
         <xpath expr="//tr/th[4]" position="after">
             <th class="text-right">Reorder</th>
         </xpath>
