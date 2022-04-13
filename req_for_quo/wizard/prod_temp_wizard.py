@@ -8,9 +8,9 @@ class ProdTemp(models.TransientModel):
     '''
     field declaration
     '''
-    quantity = fields.Float(default=1)
-    unit_of_measure_id = fields.Many2one('uom.uom')
-    scheduled_date = fields.Datetime(default=datetime.now())
+    quantity = fields.Float(string="Quantity", default=1)
+    unit_of_measure_id = fields.Many2one('uom.uom', string="Unit of Measure")
+    scheduled_date = fields.Datetime(string="Scheduled Date", default=datetime.now())
 
     # method to get default value of uom
     @api.model

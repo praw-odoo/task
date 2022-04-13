@@ -6,7 +6,7 @@ class ResConfigSetting(models.TransientModel):
     '''
     field declaration
     '''
-    is_check = fields.Boolean(readonly=False)
+    is_check = fields.Boolean(string="Is Check", readonly=False)
 
     def set_values(self):
         res = super(ResConfigSetting, self).set_values()

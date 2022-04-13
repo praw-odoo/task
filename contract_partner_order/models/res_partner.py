@@ -6,4 +6,4 @@ class ResPartner(models.Model):
     '''
     field declaration
     '''    
-    contract_ids = fields.One2many('contract.price.details','partner_id', readonly=False)
+    contract_ids = fields.One2many('contract.price.details','partner_id', string="Contract ids", readonly=False)

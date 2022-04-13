@@ -1,7 +1,4 @@
-#from argparse import _MutuallyExclusiveGroup
-
-from odoo import api, fields, models
-from odoo.exceptions import UserError
+from odoo import models
 
 
 class ResPartner(models.Model):

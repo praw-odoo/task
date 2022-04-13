@@ -6,6 +6,6 @@ class MrpProduction(models.Model):
     '''
     field declaration
     '''
-    is_check = fields.Boolean()
+    is_check = fields.Boolean(string="Check")
 
     
