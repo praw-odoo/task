@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id="payslip_template" name="Payslip Portal Template" inherit_id="portal.portal_sidebar" primary="True">
+        <!-- <t t-call="hr_payroll.action_report_payslip">
+        </t> -->
+        <!-- <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
+
+            <div class="row mt16 o_portal_sale_sidebar">
+                
+                <t t-call="portal.portal_record_sidebar">
+                    <t t-set="classes" t-value="'col-lg-auto d-print-none'"/>
+
+                    <t t-set="title">
+                        <h2 class="mb-0">
+                            <b t-field="values.net_wage" data-id="total_amount"/>
+                        </h2>
+                    </t>
+                    <t t-set="entries">
+                        <ul class="list-group list-group-flush flex-wrap flex-row flex-lg-column">
+                            <li class="list-group-item flex-grow-1">
+                                <div class="o_download_pdf btn-toolbar flex-sm-nowrap">
+                                    <div class="btn-group flex-grow-1 mr-1 mb-1">
+                                        <a class="btn btn-secondary btn-block o_download_btn" title="Download">
+                                            <i class="fa fa-download"/>
+Download</a>
+                                    </div>
+                                    <div class="btn-group flex-grow-1 mb-1">
+                                        <a class="btn btn-secondary btn-block o_print_btn o_portal_invoice_print" id="print_invoice_report" title="Print" target="_blank">
+                                            <i class="fa fa-print"/>
+Print</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="navspy list-group-item pl-0 flex-grow-1" t-ignore="true" role="complementary">
+                                <ul class="nav flex-column bs-sidenav"></ul>
+                            </li>
+
+
+                            <li t-if="partner" class="list-group-item flex-grow-1">
+                                <div class="small mb-1">
+                                    <strong class="text-muted">Employee</strong>
+                                </div>
+                                <div class="row flex-nowrap">
+                                    <div class="col flex-grow-0 pr-2">
+                                        <img class="rounded-circle mr4 float-left o_portal_contact_img" t-att-src="image_data_uri(partner.avatar_1024)" alt="Contact"/>
+                                    </div>
+                                    <div class="col pl-0" style="min-width: 150px">
+                                        <span t-field="partner.user_id" t-options='{"widget": "contact", "fields": ["name", "phone"], "no_marker": True}'/>
+                                        <a href="#discussion" class="small">
+                                            <i class="fa fa-comment"></i> Send message</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </t>
+                </t>
+                <div id="quote_content" class="col-12 col-lg justify-content-end">
+
+                   
+                    
+
+                    
+                    <main class="shadow p-4">
+                        <div class="article">
+                            <div class="o_company_1_layout">
+                                <div class="row zero_min_height">
+                                    <div class="col-12">
+                                        <div style="border-bottom: 1px solid black;"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6" name="company_address"></div>
+                                </div>
+                            </div>
+                            <div class="o_report_layout_standard o_company_1_layout ">
+                                <div class="pt-3">
+                                    <div id="addr" class="page" style="margin-top: 32px !important;">
+                                        <div style="width:49%; display:inline-block;"></div>
+                                        <div style="width:50%; display:inline-block;">
+                                            <address class="mb-0" itemscope="itemscope" itemtype="http://schema.org/Organization" style="width:100%">
+                                                <div>
+                                                    <span itemprop="name">
+                                                        <t t-esc="company_name"/>
+                                                    </span>
+                                                </div>
+                                                <div itemprop="address" itemscope="itemscope" itemtype="http://schema.org/PostalAddress">
+                                                    <div class="d-flex align-items-baseline">
+                                                        <span class="w-100 o_force_ltr d-block" itemprop="streetAddress">
+                                                            <t t-foreach="company_street_address" t-as="line">
+                                                                <t t-esc="line"/>
+                                                                <br/>
+                                                            </t>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </address>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pt-3" style="margin-top: 32px;">
+                                    <h2>
+                                        <t t-esc="invoice_name"/>
+                                    </h2>
+                                    <div id="dates" class="page" style="margin-top: 28px !important;">
+                                        <div style="width:25%; display:inline-block;">
+                                            <strong>playslip Date from :</strong>
+                                            <p class="m-0">
+                                                <t t-esc="values.date_from"/>
+                                            </p>
+                                        </div>
+
+                                        <div style="width:25%; display:inline-block;">
+                                            <div class="mb-0" itemscope="itemscope" itemtype="http://schema.org/Organization" style="width:100%">
+                                                <strong>playslip Date to :</strong>
+                                                <p class="m-0">
+                                                    <t t-esc="values.date_to"/>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="page" style="margin-top: 32px !important;">
+                                    <table class="table table-sm o_main_table" name="invoice_line_table" style="width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th name="th_Name" class="text-left">
+                                                    <span>Name</span>
+                                                </th>
+                                                <th name="th_Amountl" class="text-right">
+                                                    <span>Amount</span>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="invoice_tbody">
+                                            <tr class="">
+                                                <td name="account_invoice_line_name">
+                                                    <t t-esc="values.name"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div id="total" class="page" style="margin-top: 32px !important;">
+                                        <div style="width:49%; display:inline-block;"></div>
+                                        <div style="width:50%; display:inline-block;">
+                                            <table class="table table-sm" style="page-break-inside: avoid; width:100%">
+                                                <tbody>
+                                                    <tr class="border-black o_subtotal" style="">
+                                                        <td>
+                                                            <strong>Subtotal</strong>
+                                                        </td>
+                                                        <td class="text-right">
+                                                            <span>$  <span class="oe_currency_value">19,250.00</span>
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="border-black o_total">
+                                                        <td>
+                                                            <strong>Total</strong>
+                                                        </td>
+                                                        <td class="text-right">
+                                                            <span class="text-nowrap">$                                                                <span class="oe_currency_value">19,250.00</span>
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_company_1_layout mt-4">
+                                <div class="text-center" style="border-top: 1px solid black;">
+                                    <ul class="list-inline mb4"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                    
+                </div>
+            </div>
+
+        </xpath> -->
+
+    </template>
+
+</odoo>

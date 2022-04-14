@@ -8,8 +8,9 @@
                 <t t-else="">Quotations</t>
             </li> -->
             <li > 
-                <!-- <a t-if="sale_order" t-attf-href="/my/payslip?{{ keep_query() }}">payslip</a> -->
-                <t >/payslip</t>
+                <a t-if="page_name == 'slip'">payslip</a>
+                <t t-else="">payslip</t>
+                <!-- <t >/payslip</t> -->
             </li>
             <!-- <li t-if="sale_order" class="breadcrumb-item active">
                 <span t-field="sale_order.type_name"/>
@@ -40,17 +41,18 @@
                         <th class="text-right">Total</th>
                     </tr>
                 </thead>
-                <t t-foreach="playslips" t-as="playslip">
+                <t t-foreach="playslips" t-as="p">
                     <tr>
-                        <td><a t-att-href="playslip.get_portal_url()"><t t-esc="playslip.name"/></a></td>
-                        <td class="text-right"><span t-field="playslip.date_order"/></td>
-                        <td class="text-right"><span t-field="playslip.validity_date"/></td>
+                        <!-- <td><a t-att-href="'/my/payslip_id/%s'%p.id"><t t-esc="p.name"/></a></td> -->
+                        <td><a t-att-href="p.get_portal_url()"><t t-esc="p.name"/></a></td>
+                        <td class="text-right"><span t-field="p.date_from"/></td>
+                        <td class="text-right"><span t-field="p.date_to"/></td>
                         <td class="text-center">
-                            <span t-if="playslip.state == 'cancel'" class="badge badge-pill badge-secondary"><i class="fa fa-fw fa-remove"/> Cancelled</span>
-                            <span t-if="playslip.is_expired" class="badge badge-pill badge-secondary"><i class="fa fa-fw fa-clock-o"/> Expired</span>
+                            <span t-if="p.state == 'cancel'" class="badge badge-pill badge-secondary"><i class="fa fa-fw fa-remove"/> Cancelled</span>
+                            <!-- <span t-if="playslip.is_expired" class="badge badge-pill badge-secondary"><i class="fa fa-fw fa-clock-o"/> Expired</span> -->
                         </td>
                         <td class="text-right">
-                            <span t-field="playslip.amount_total"/>
+                            <span t-field="p.net_wage"/>
                         </td>
                     </tr>
                 </t>

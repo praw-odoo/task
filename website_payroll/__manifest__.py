@@ -15,7 +15,8 @@
 
     'data': [
         "views/portal_templates.xml",
-        "views/render_payslip.xml",
+        "views/render_payslip_list.xml",
+        "views/payslip_template.xml"
         ],
 
     'installable': True,
