@@ -17,7 +17,7 @@
         "views/portal_templates.xml",
         "views/render_payslip_list.xml",
         "views/payslip_template.xml"
-        ],
+    ],
 
     'installable': True,
     'license': 'LGPL-3'
