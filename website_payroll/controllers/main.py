@@ -6,6 +6,18 @@ from odoo.addons.portal.controllers import portal
 from odoo.addons.portal.controllers.portal import pager as portal_pager, get_records_pager
 class CustomerPortal(portal.CustomerPortal):
     
+    def _prepare_home_portal_values(self, counters):
+        values = super()._prepare_home_portal_values(counters)
+        partner = request.env.user.partner_id
+
+        payslip = request.env['hr.payslip']
+        employee_ids = request.env['hr.employee'].search(
+            [('user_id', '=', request.env.user.id)]).ids
+        if 'slip_count' in counters:
+            values['slip_count'] = request.env['hr.payslip'].search_count([('employee_id', 'in', employee_ids)])\
+                if payslip.check_access_rights('read', raise_exception=False) else 0
+        return values
+
     def _prepare_portal_layout_values(self):
         """Values for /my/* templates rendering.
 
@@ -52,8 +64,14 @@ class CustomerPortal(portal.CustomerPortal):
             total=slip_count,
             page=page,
         )
+        # user_slips = request.uid
+        # print("\n\n user_slips ",user_slips)
+        employee_ids = request.env['hr.employee'].search(
+            [('user_id', '=', request.env.user.id)]).ids
+        # payslip = request.env['hr.payslip'].search(
+        #     [('employee_id', 'in', employee_ids)])
 
-        playslips = HrPayslip.search([])
+        playslips = HrPayslip.search([('employee_id', 'in', employee_ids)])
 
         values = ({
             'date': date_begin,
@@ -65,10 +83,8 @@ class CustomerPortal(portal.CustomerPortal):
         })
         return request.render("website_payroll.portal_my_payslips",values)
 
-    
     @http.route(['/my/payslip/<int:id>'], type='http', auth="public", website=True)
     def portal_my_payslip_detail(self, id, access_token=None, report_type=None, download=False, **kw):
-        print("\n\n hello****************----------------")
         try:
             payslip_sudo = self._document_check_access('hr.payslip', id, access_token)
         except (AccessError, MissingError):
@@ -78,6 +94,5 @@ class CustomerPortal(portal.CustomerPortal):
             return self._show_report(model=payslip_sudo, report_type=report_type, report_ref='hr_payroll.action_report_payslip', download=download)
 
         values = self._payslip_get_page_view_values(payslip_sudo, access_token, **kw)
-        # return request.render("hr_payroll.report_payslip", values)
-        
+
         return request.render("website_payroll.payslip_template", values)

@@ -1,24 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-    <!-- <template id="portal_my_home_menu_sale" name="Portal layout : sales menu entries" inherit_id="portal.portal_breadcrumbs" priority="20"> -->
-        <!-- <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
-            <li t-if="page_name == 'slip' or hr_payslip and hr_payslip.state in ('draft', 'done', 'paid')" t-attf-class="breadcrumb-item #{'active ' if not hr_payslip else ''}">
-                <a t-if="sale_order" t-attf-href="/my/quotes?{{ keep_query() }}">Payslip</a>
-                <t t-else="">Payslip</t>
-            </li>
-            <li t-if="payslip" class="breadcrumb-item active">
-                <t t-esc="payslip.name"/>
-            </li>
-
-             <li t-if="playslips" class="breadcrumb-item active">
-                 <span t-field="playslips.type_name"/> 
-                <t t-esc="playslips.name"/>
-            </li> -->
         <template id="portal_my_home_menu_hr_payslip" name="Portal layout : employment payslip menu entries" inherit_id="portal.portal_breadcrumbs" priority="25">
             <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
                 <li t-if="page_name == 'slip' or hr_payslip and hr_payslip.state in ('draft', 'done', 'paid')" t-attf-class="breadcrumb-item #{'active ' if not hr_payslip else ''}">
-                <a t-if="hr_payslip" t-attf-href="/my/quotes?{{ keep_query() }}">Payslip</a>
+                <a t-if="hr_payslip" t-attf-href="/my/payslip?{{ keep_query() }}">Payslip</a>
                 <t t-else="">Payslip</t>
             </li>
                 <li t-if="page_name == 'payslip'" t-attf-class="breadcrumb-item #{'active ' if payslip else ''}">
