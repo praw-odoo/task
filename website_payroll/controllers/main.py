@@ -1,14 +1,23 @@
-
 from odoo import http
+from odoo.exceptions import AccessError, MissingError
 from odoo.http import request
 from odoo.http import Controller
 from odoo.addons.portal.controllers import portal
 from odoo.addons.portal.controllers.portal import pager as portal_pager, get_records_pager
-
-
-
-class CustomerPortal(Controller):
+class CustomerPortal(portal.CustomerPortal):
     
+    def _prepare_home_portal_values(self, counters):
+        values = super()._prepare_home_portal_values(counters)
+        partner = request.env.user.partner_id
+
+        payslip = request.env['hr.payslip']
+        employee_ids = request.env['hr.employee'].search(
+            [('user_id', '=', request.env.user.id)]).ids
+        if 'slip_count' in counters:
+            values['slip_count'] = request.env['hr.payslip'].search_count([('employee_id', 'in', employee_ids)])\
+                if payslip.check_access_rights('read', raise_exception=False) else 0
+        return values
+
     def _prepare_portal_layout_values(self):
         """Values for /my/* templates rendering.
 
@@ -24,13 +33,21 @@ class CustomerPortal(Controller):
             'page_name': 'home',
         }
 
+
+    def _payslip_get_page_view_values(self, payslip, access_token, **kwargs):
+        values = {
+            'page_name': 'payslip',
+            'payslip': payslip,
+            'o':payslip
+        }
+        return self._get_page_view_values(payslip, access_token, values, 'my_payslip_history', False, **kwargs)
+
     def _prepare_payslips_domain(self, partner):
         return [
-            # ('message_partner_ids', 'child_of', [partner.commercial_partner_id.id]),
             ('state', 'in', ['draft', 'done', 'paid'])
         ]
 
-    @http.route(['/my/payslip', '/my/payslip/page/<int:page>'],  type='http', auth="user", website=True)
+    @http.route('/my/payslip',  type='http', auth="user", website=True)
     def portal_my_payslips(self, page=1, date_begin=None, date_end=None, sortby=None, filterby=None, **kw):
         values = self._prepare_portal_layout_values()
         partner = request.env.user.partner_id
@@ -46,29 +63,36 @@ class CustomerPortal(Controller):
             url_args={'date_begin': date_begin, 'date_end': date_end, 'sortby': sortby},
             total=slip_count,
             page=page,
-            # step=self._items_per_page
         )
+        # user_slips = request.uid
+        # print("\n\n user_slips ",user_slips)
+        employee_ids = request.env['hr.employee'].search(
+            [('user_id', '=', request.env.user.id)]).ids
+        # payslip = request.env['hr.payslip'].search(
+        #     [('employee_id', 'in', employee_ids)])
 
-        slips = HrPayslip.sudo().search([])
-        # request.session['my_orders_history'] = orders.ids[:100]
+        playslips = HrPayslip.search([('employee_id', 'in', employee_ids)])
 
         values = ({
             'date': date_begin,
-            'orders': slips.sudo(),
+            'playslips': playslips.sudo(),
             'page_name': 'slip',
             'pager': pager,
             'default_url': '/my/payslip',
-            # 'searchbar_sortings': searchbar_sortings,
             'sortby': sortby,
         })
         return request.render("website_payroll.portal_my_payslips",values)
 
+    @http.route(['/my/payslip/<int:id>'], type='http', auth="public", website=True)
+    def portal_my_payslip_detail(self, id, access_token=None, report_type=None, download=False, **kw):
+        try:
+            payslip_sudo = self._document_check_access('hr.payslip', id, access_token)
+        except (AccessError, MissingError):
+            return request.redirect('/my')
 
-        # searchbar_sortings = self._get_sale_searchbar_sortings()
+        if report_type in ('html', 'pdf', 'text'):
+            return self._show_report(model=payslip_sudo, report_type=report_type, report_ref='hr_payroll.action_report_payslip', download=download)
 
-        # sort_order = searchbar_sortings[sortby]['order']
+        values = self._payslip_get_page_view_values(payslip_sudo, access_token, **kw)
 
-        # if date_begin and date_end:
-        #     domain += [('create_date', '>', date_begin), ('create_date', '<=', date_end)]
-
-        # return request.render("sale.portal_my_orders", values)
+        return request.render("website_payroll.payslip_template", values)

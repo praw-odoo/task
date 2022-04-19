@@ -14,9 +14,11 @@
     'depends': ['website','hr_payroll','hr','portal'],
 
     'data': [
+        "security/ir.model.access.csv",
         "views/portal_templates.xml",
-        "views/render_payslip.xml",
-        ],
+        "views/render_payslip_list.xml",
+        "views/payslip_template.xml"
+    ],
 
     'installable': True,
     'license': 'LGPL-3'
