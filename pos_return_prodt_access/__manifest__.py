@@ -14,9 +14,18 @@
     'depends': ['point_of_sale'],
 
     'data': [
-        "views/res_config_settings.xml",
+        "views/pos_config_views.xml",
         "views/res_users.xml"
     ],
+
+    'assets': {
+        'point_of_sale.assets': [
+            'pos_return_prodt_access/static/src/js/Screens/ProductScreen.js',
+            ],
+        'web.assets_qweb': [
+        'pos_return_prodt_access/static/src/xml/**/*',
+        ],
+    },
 
     'installable': True,
     'license': 'LGPL-3'
