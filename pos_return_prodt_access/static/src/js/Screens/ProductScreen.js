@@ -10,8 +10,6 @@ odoo.define("pos_customer.onclickpop", function (require) {
     async _onClickPay()
     {
       var self = this;
-      console.log(self.env.pos.config.is_check)
-      console.log("self.env.pos.config.access_users : ",self.env.pos.config.access_users)
       if (self.env.pos.config.is_check == true && self.env.pos.config.access_users != null)
       {
         console.log("this", this)
@@ -24,13 +22,12 @@ odoo.define("pos_customer.onclickpop", function (require) {
         );
         if (confirmed)
         {
-          console.log(self.env.pos.user)
           console.log(payload, "payload");
           var rpc = require('web.rpc');
           rpc.query({
             model: 'res.users',
             method: 'search',
-            args: [['&', ['access_code', '=', payload], ['id', '=', self.env.pos.user.id]]],
+            args: [['&', ['access_code', '=', payload], ['id', 'not in', self.env.pos.config.access_users]]],
           })
           .then(function (data) {
             if (!data.length)

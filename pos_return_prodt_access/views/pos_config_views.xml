@@ -26,7 +26,7 @@
                                 <label for="access_users"/>
                             </div>
                         </div> -->
-                        <field name="access_users" />
+                        <field name="access_users" widget="many2many_tags"/>
                     </group>
                 </xpath>
             </field>
