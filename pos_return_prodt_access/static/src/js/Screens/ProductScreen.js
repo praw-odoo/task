@@ -10,10 +10,26 @@ odoo.define("pos_customer.onclickpop", function (require) {
     async _onClickPay()
     {
       var self = this;
-      if (self.env.pos.config.is_check == true && self.env.pos.config.access_users != null)
+      var users = false
+      var quantity = false
+      for (var i = 0; i < this.env.pos.get_order().get_orderlines().length; i++)
       {
-        console.log("this", this)
-        console.log("self",self)
+        quantity = this.env.pos.get_order().get_orderlines()[i].quantity
+        if (quantity < 0)
+          console.log("quantity : ",quantity)
+          break;
+      }
+      var luid = this.env.pos.user.id
+      for (var i = 0; i < self.env.pos.config.access_users.length; i++)
+      {
+        if (luid == self.env.pos.config.access_users[i])
+        {
+          users = true
+          break;
+        }
+      }
+      if (quantity < 0 && self.env.pos.config.is_check == true && !users)
+      {
         const { confirmed, payload } = await this.showPopup("TextInputPopup",
           {
             title: this.env._t("#Access Code Required"),
@@ -45,6 +61,12 @@ odoo.define("pos_customer.onclickpop", function (require) {
           })
         }
       }
+      else if (quantity < 0 && self.env.pos.config.is_check == true && users)
+      {
+        self.showScreen("PaymentScreen");
+      }
+      else
+      self.showScreen("PaymentScreen");
     }
   }
   Registries.Component.extend(ProductScreen, NewProductScreen);
