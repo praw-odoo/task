@@ -5,5 +5,5 @@ class PurchaseOrder(models.Model):
 
     def _prepare_picking(self):
         val = super()._prepare_picking()
-        val['log_user_id'] = self.env.user.id
+        val['log_user_id'] = self.user_id.id
         return val

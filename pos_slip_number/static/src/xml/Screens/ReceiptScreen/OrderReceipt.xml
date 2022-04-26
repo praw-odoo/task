@@ -2,7 +2,39 @@
 <templates id="template" xml:space="preserve">
     <t t-name="OrderReceipt" t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension" owl="1">
         <xpath expr="//div/div[hasclass('pos-receipt-contact')]" position="before">
-            <div>aaaa<t t-esc="receipt.sequence_num"/></div>
+            <div>bbbb<t t-esc="receipt.sequence_num"/></div>
         </xpath>
     </t>
 </templates>
+
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-extend="OrderReceipt">
+        <t t-jquery='.pos-receipt-amount:first' t-operation='after'>
+          <t t-if="receipt.total_rounded != receipt.total_with_tax">
+              <div class="pos-receipt-amount">
+                  ROUNDED
+                  <span t-esc='widget.format_currency(receipt.total_rounded)' class="pos-receipt-right-align"/>
+              </div>
+          </t>
+        </t>
+    </t>
+    <t t-extend="PaymentScreen-Paymentlines">
+        <t t-jquery='.paymentlines-empty > .total' t-operation='replace'>
+            <div class='total'>
+                <t t-esc="widget.format_currency(order.get_total_with_tax() + order.get_rounding_applied())"/>
+            </div>
+        </t>
+    </t>
+</templates> -->
+
+<!-- <t t-extend="PosTicket" >
+
+    <t t-jquery=".receipt-orderlines tr td:nth-child(1)" t-operation="append"> 
+
+       <t t-esc="orderline.get_product().sequence_num"/> 
+
+    </t>
+
+</t> -->
+
