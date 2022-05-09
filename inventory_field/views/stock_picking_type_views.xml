@@ -1,0 +1,20 @@
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="view_picking_type_form_view_inherit_inventory_field" model="ir.ui.view">
+            <field name="name">view.picking.type.form.inherit.inventory.field</field>
+            <field name="model">stock.picking.type</field>
+            <field name="inherit_id" ref="stock.view_picking_type_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='return_picking_type_id']" position="after">
+                    <group>
+                        <field name="add_lot_tmp_id"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+
+</odoo> -->

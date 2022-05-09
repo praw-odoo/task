@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="purchase_order_form2_inherit_po_cash_rounding" model="ir.ui.view">
+            <field name="name">purchase.order.form2.inherit.po.cash.rounding</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='products']" position="after">
+                    <page string="Journal Items">
+                        <field name="line_ids" mode="tree,kanban">
+                            <tree>
+                                <field name="account_id"/>
+                                <field name="name"/>
+                                <field name="debit"/>
+                                <field name="credit"/>
+                                <field name="tax_tag_ids"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+
+</odoo>
