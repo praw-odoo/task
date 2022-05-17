@@ -11,7 +11,7 @@
     'author': 'Odoo Ps',
     'version': '15.0.1.0.0',
 
-    'depends': ['stock','purchase_stock', 'purchase','sale_management','mrp'],
+    'depends': ['mrp','sale_purchase_stock','purchase_stock'],
 
     'data': [
         

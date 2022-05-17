@@ -1,0 +1,8 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="stock.forecastWidget" t-inherit="stock.forecast_widget" t-inherit-mode="extension" owl="1">
+        <xpath expr="//button[hasclass('o_forecast_report_button btn btn-link o_icon_button ml-2')]" position="attributes">
+            <attribute name="context">{'default_add_lot_tmp_id': add_lot_tmp_id}</attribute>
+        </xpath>
+    </t>
+</templates> -->

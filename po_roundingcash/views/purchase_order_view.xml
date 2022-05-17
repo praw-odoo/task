@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="purchase_order_form2_inherit_po_cash_rounding" model="ir.ui.view">
+            <field name="name">purchase.order.form2.inherit.po.cash.rounding</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="invoice_cash_rounding_id"/>
+                    <field name='company_id'/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+
+</odoo>

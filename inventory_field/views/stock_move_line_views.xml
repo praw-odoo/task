@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_picking_type_form_view_inherit_inventory_field" model="ir.ui.view">
+        <field name="name">view.picking.type.form.inherit.inventory.field</field>
+        <field name="model">stock.picking.type</field>
+        <field name="inherit_id" ref="stock.view_picking_type_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='return_picking_type_id']" position="after">
+                <group>
+                    <field name="add_lot_tmp_id" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- context="{'default_add_lot_tmp_id': add_lot_tmp_id}" -->
+
+    <!-- <record id="view_picking_form_inherit_inventory_field" model="ir.ui.view">
+        <field name="name">view.picking.form.inherit.inventory.field</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='is_locked']" position="attributes">
+                <field name="default_add_lot_tmp_id" invisible="1"/>
+                <attribute name="context">{'default_add_lot_tmp_id': add_lot_tmp_id}</attribute>
+            </xpath>
+        </field>
+    </record> -->
+
+    <record id="view_stock_move_line_operation_tree_inherit_inventory_field" model="ir.ui.view">
+        <field name="name">view.stock.move.move.line.operation.tree.inherit.inventory.field</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock.view_stock_move_line_operation_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='location_id']" position="after">
+                <!-- <field name="default_add_lot_tmp_id" invisible="1"/> -->
+                <field name="add_id" attrs="{'invisible_column':[('parent.add_lot_tmp_id','!=', True)]}"/>
+            </xpath>
+            <!-- attrs="{'invisible':[('default_add_lot_tmp_id','=', False)]}" -->
+            <!-- attrs="{'invisible':[('move_line_ids.picking_type_id.add_lot_tmp_id','=', False)]}" -->
+            <!-- attrs="{'invisible':[('move_id.picking_type_id.add_lot_tmp_id','=', False)]}" -->
+            <!-- domain="[('picking_type_id.add_lot_tmp_id', '=', True)]" -->
+        </field>
+    </record>
+
+</odoo>
