@@ -1,13 +1,13 @@
 {
-    'name': "inventory_field",
+    'name': "stock_gtin",
 
     'description': """
-        helps to inventory_field
+        helps to stock_gtin
     """,
     'author': 'Odoo Ps',
     'version': '1.0.0',
 
-    'depends': ['mrp'],
+    'depends': ['stock'],
 
     'data': [
         "views/stock_package_type_view.xml",

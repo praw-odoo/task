@@ -5,11 +5,16 @@ class MrpProduction(models.Model):
     _inherit = 'mrp.production'
 
     def button_plan(self):
+        in_progress = self.env['mrp.production'].search([('state','=','progress')])
+        # in_progress1 = self.env['mrp.production'].search([]).filtered(lambda mrp: mrp.state == 'progress')
+        
         if self.bom_id.operation_ids.is_work_center_lock:
-            for line in self.workorder_ids.workcenter_id:    
-                if self.bom_id.operation_ids.workcenter_id == line:
-                        super().button_plan()
-                else:
-                    raise UserError("Alternative workcenter cannot produce until Work Center is Locked")
+            if not in_progress:
+                return super().button_plan()
+            if any(order.product_id == self.product_id for order in in_progress):
+                # if order.product_id == self.product_id:
+                raise UserError("workcenter with default in progress")
+            else:
+                super().button_plan()
         else:
             super().button_plan()
