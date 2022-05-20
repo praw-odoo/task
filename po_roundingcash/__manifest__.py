@@ -1,13 +1,13 @@
 {
-    'name': "inventory_field",
+    'name': "po_roundingcash",
 
     'description': """
-        helps to inventory_field
+        helps to po_roundingcash
     """,
     'author': 'Odoo Ps',
     'version': '1.0.0',
 
-    'depends': ['account','purchase','account_accountant'],
+    'depends': ['account','purchase',],
 
     'data': [
         "data/product_data.xml",

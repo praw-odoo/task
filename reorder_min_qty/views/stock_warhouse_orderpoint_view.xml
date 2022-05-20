@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+        <record id="view_warehouse_orderpoint_tree_editable_inherit_reorder_min_qty" model="ir.ui.view">
+            <field name="name">view.warehouse.orderpoint.tree.editable.inherit.reorder.min.qty</field>
+            <field name="model">stock.warehouse.orderpoint</field>
+            <field name="inherit_id" ref="stock.view_warehouse_orderpoint_tree_editable"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='location_id']" position="after">
+                    <field name = "location_ids" widget="many2many_tags"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+
+</odoo>

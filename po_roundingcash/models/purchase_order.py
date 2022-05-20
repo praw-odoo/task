@@ -6,11 +6,42 @@ class PurchaseOrder(models.Model):
     _inherit = "purchase.order"
 
     invoice_cash_rounding_id = fields.Many2one('account.cash.rounding',string='Cash Rounding Method')
-    
+    # # global temp1
     def _prepare_invoice(self):
         res = super()._prepare_invoice()
-        res.update({'amount_tax':7})
+        temp1 = 0
+        def compute_taxes(order_line):
+            return order_line.taxes_id._origin.compute_all(**order_line._prepare_compute_all_values())
+
+        for order in self:
+            # if order.product_id:
+                # roundup = order.invoice_cash_rounding_id.rounding
+                # print("\n\n rounding",roundup)
+            if order.invoice_cash_rounding_id.strategy == "biggest_tax":
+                tax_lines_data = self.env['account.move']._prepare_tax_lines_data_for_totals_from_object(order.order_line, compute_taxes)
+                for i in tax_lines_data:
+                    if order.invoice_cash_rounding_id.rounding_method =="UP":
+                        if 'tax_amount' in i:   
+                            i['tax_amount'] += math.ceil(order.amount_total) - order.amount_total
+                            temp1 = i['tax_amount']
+                    elif order.invoice_cash_rounding_id.rounding_method =="DOWN":
+                        if 'tax_amount' in i:
+                            i['tax_amount'] += math.floor(order.amount_total) - order.amount_total
+                            temp1 = i['tax_amount']
+                    elif order.invoice_cash_rounding_id.rounding_method =="HALF-UP":
+                        if 'tax_amount' in i:
+                            temp = math.floor(i['tax_amount']) + 0.50
+                            if i['tax_amount'] >= temp:
+                                i['tax_amount'] += math.ceil(order.amount_total) - order.amount_total
+                                temp1 = i['tax_amount']
+                            elif i['tax_amount'] < temp:
+                                i['tax_amount'] += math.floor(order.amount_total) - order.amount_total
+                                temp1 = i['tax_amount']
+        res.update({'amount_tax':temp1})
         return res
+
+    # def action_create_invoice(self):
+    #     super().action_create_invoice()
     
     @api.depends('order_line.taxes_id', 'order_line.price_subtotal', 'amount_total', 'amount_untaxed')
     def _compute_tax_totals_json(self):
