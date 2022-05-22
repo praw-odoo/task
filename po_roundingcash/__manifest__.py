@@ -7,7 +7,7 @@
     'author': 'Odoo Ps',
     'version': '1.0.0',
 
-    'depends': ['account','purchase',],
+    'depends': ['account_accountant','purchase','stock'],
 
     'data': [
         "data/product_data.xml",

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- <data noupdate="1"> -->
+        <record id="pack_order" model="ir.sequence">
+            <field name="name">Pack Order</field>
+            <field name="code">pack.order</field>
+            <field name="number_next_actual">0001</field>
+            <field name="prefix">/</field>
+            <field name="padding">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    <!-- </data> -->
+</odoo>
+
+        <!-- print("\n\n self.env.company.id",self.env.company.id) -->
+        <!-- print("\n\n self.env.company.id",self.env.company.id) -->
