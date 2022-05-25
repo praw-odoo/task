@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="product_packaging_form_view_fuh" model="ir.ui.view">
+            <field name="name">product.packaging.form.inherit.fuhrmann</field>
+            <field name="model">product.packaging</field>
+            <field name="inherit_id" ref="product.product_packaging_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='barcode']" position="after">
+                    <field name="length"/>
+                    <field name="width"/>
+                    <field name="height"/>
+                    <field name="weight"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_packaging_tree_view_fuh" model="ir.ui.view">
+            <field name="name">product.packaging.tree.inherit.fuhrmann</field>
+            <field name="model">product.packaging</field>
+            <field name="inherit_id" ref="product.product_packaging_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='barcode']" position="after">
+                    <field name="length" optional="hide"/>
+                    <field name="width" optional="hide"/>
+                    <field name="height" optional="hide"/>
+                    <field name="weight" optional="hide"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

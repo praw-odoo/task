@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="stock_package_type_form_inherit_fuh" model="ir.ui.view">
+            <field name="name">stock.package.type.form.inherit</field>
+            <field name="model">stock.package.type</field>
+            <field name="inherit_id" ref="stock.stock_package_type_form"/>
+            <field name="arch" type="xml">
+                <field name="barcode" position="after">
+                    <field name="auto_create_gtin"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

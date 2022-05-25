@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_supplierinfo_form_view_inherit_product_supplier" model="ir.ui.view">
+        <field name="name">product.supplierinfo.form.view.inherit.product.supplier</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('o_row')]" position="after">
+                <label for="minimum_qty"/>
+                <div class="o_row">
+                    <field name="minimum_qty"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

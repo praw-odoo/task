@@ -1,18 +1,75 @@
 from odoo import _,api,models,fields
+from odoo.exceptions import UserError
 
 class ProductPackaging(models.Model):
     _inherit = "product.packaging"
+    # _order = 'sequence, id'
+    _check_company_auto = True
+
+    # sequence = fields.Integer('Sequence', help="Used to order the 'All Operations' kanban view")
     # sequence_id = fields.Many2one(
         # 'ir.sequence', 'Reference Sequence',
         # check_company=True, copy=False)
+    # sequence_code = fields.Char('Code', required=True)
 
-    # comp_dict = {}
     @api.model
     def create(self, vals_list):
         res = super().create(vals_list)
+        # val = ''
+        # if not res.company_id:
+            # raise UserError("Please Select company")
+        # seq_id = self.env['product.packaging'].search([('barcode','!=',None),('company_id','=',res.company_id.id)]).mapped('barcode')
+        # print("\n\n seq_id",seq_id)
+        # l = [s[0] for s in self.env.company.name.split()]
+        # for c in l:
+            # val = val + str(c)
+        # vals_list['sequence_code'] = val
         if res.package_type_id.auto_create_gtin:
             res.barcode = self.env['ir.sequence'].next_by_code('pack.order')
+            
+            # self.env['ir.sequence'].sudo().create({
+                    # 'name': 'appleapple' + ' ' + 'seq',
+                    # 'prefix': 'val', 'padding': 18,
+                    # 'company_id': vals_list.get('company_id') or self.env.company.id,
+                # }).id
+            
+            
+            
+            
+            # self.env['ir.sequence'].sudo().create({
+                    # 'name': _('Sequence') + ' ' + vals_list['sequence_code'],
+                    # 'prefix': vals_list['sequence_code'], 'padding': 5,
+                    # 'company_id': vals_list.get('company_id') or self.env.company.id,
+                # }).id
+            
         return res
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         # .sudo()
         # 
@@ -46,7 +103,7 @@ class ProductPackaging(models.Model):
         #     'company_id': self.company_id.id,
         #     })
             # res.barcode = IrSequence.next_by_code(pack.order)
-        return res
+        # return res
 
 
 
