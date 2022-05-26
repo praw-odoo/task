@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-
 from odoo import api, fields, models
 
 
@@ -9,7 +6,8 @@ class Company(models.Model):
 
     def _create_barcode_sequence(self):
         vals = []
-        for company in self:
+        for company in self.env['res.company'].search([]):
+            print('\n\n\n>>>>>>>>>', company)
             vals.append({
                 'name': 'company',
                 'code': 'gtin.stock.package.type',

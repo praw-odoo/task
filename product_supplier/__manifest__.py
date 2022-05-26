@@ -1,8 +1,8 @@
 {
-    'name': "stock_gtin",
+    'name': "product_supplier",
 
     'description': """
-        helps to stock_gtin
+        helps to product_supplier
     """,
 
     'author': 'Odoo Ps',
