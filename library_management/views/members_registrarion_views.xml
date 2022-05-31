@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List View For Members Registration -->
+    <record id="members_registration_tree" model="ir.ui.view">
+        <field name="name">Members Registration</field>
+        <field name="model">members.registration</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="user_ids" optional="show"/>
+                <field name="name" optional="show"/>
+                <field name="type_of" optional="show"/>
+                <field name="Email_id" optional="show"/>
+                <field name="username_of_student" optional="show"/>
+                <field name="mobile_number" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View For Members Registration -->
+    <record id="members_registration_form" model="ir.ui.view">
+        <field name="name">Members Registration</field>
+        <field name="model">members.registration</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="user_ids"/>
+                            <field name="mobile_number"/>
+                        </group>
+                        <group>
+                            <field name="Email_id"/>
+                            <field name="type_of"/>
+                            <field name="username_of_student"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Template For Members Registration -->
+    <template id="regisration_form_template">
+        <div t-call="website.layout">
+            <div class="wrap m-2">
+                <div class="oe_structure">
+                    <div class="container">
+                        <form role="form" action="submit" method="POST">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div class="form-group row">
+                                <label for="name" class="col-sm-3 col-form-label">Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="name" t-att-value="name" id="name"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="Email_id" class="col-sm-3 col-form-label">Email Id</label>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" name="Email_id" t-att-value="Email_id" id="Email_id"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="mobile_number" class="col-sm-3 col-form-label">Mobile Number</label>
+                                <div class="col-md-6">
+                                    <input type="number" class="form-control" name="mobile_number" t-att-value="mobile_number" id="mobile_number"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="type_of" class="col-sm-3 col-form-label">Type</label>
+                                <div class="col-md-6">
+                                    <select name="type_of" class="form-control" id="type_o">
+                                        <option value="student">Student</option>
+                                        <option value="staff">Staff</option>
+                                        <option value="gm">General Member</option>
+                                        <option value="glm">General Life Member</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="user_id" class="col-sm-3 col-form-label">User Id</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="user_ids" t-att-value="user_ids" id="user_ids"/>
+                                </div>
+                            </div>
+                            <div class="clearfix oe_login_buttons">
+                                <button type="submit" class="btn btn-primary pull-left">submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+</odoo>

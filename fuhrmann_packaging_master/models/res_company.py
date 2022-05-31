@@ -7,16 +7,16 @@ class Company(models.Model):
     def _create_barcode_sequence(self):
         vals = []
         for company in self.env['res.company'].search([]):
-            print('\n\n\n>>>>>>>>>', company)
-            vals.append({
-                'name': 'company',
-                'code': 'gtin.stock.package.type',
-                'company_id': company.id,
-                'prefix': '00',
-                'padding': 18,
-                'number_next': 1,
-                'number_increment': 1
-            })
+            if not self.env['ir.sequence'].search([('name','!=','company'),('company_id','!=',company),('code','!=','gtin.stock.package.type')]):
+                vals.append({
+                    'name': 'company',
+                    'code': 'gtin.stock.package.type',
+                    'company_id': company.id,
+                    'prefix': '00',
+                    'padding': 18,
+                    'number_next': 1,
+                    'number_increment': 1
+                })
         if vals:
             self.env['ir.sequence'].create(vals)
 

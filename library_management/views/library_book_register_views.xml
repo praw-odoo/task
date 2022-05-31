@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="library_book_register_tree" model="ir.ui.view">
+        <field name="name">Book Register</field>
+        <field name="model">book.register</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="book_id"/>
+                <field name="serial_number"/>
+                <field name="subscriber"/>
+                <field name="state" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="library_book_register_form" model="ir.ui.view">
+        <field name="name">Book</field>
+        <field name="model">book.register</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_issue" type="object" class="oe_highlight" string="Issue" attrs="{'invisible' : [('state','=','issue')]}"/>
+                    <button name="action_request_issue" type="object" class="oe_highlight" string="Request:Issue" attrs="{'invisible' : [('state','=','request:issue')]}"/>
+                    <button name="action_cancle" type="object" string="Cancle"/>
+                    <field name="status" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="book_id" widget="many2one_tags"/>
+                            <field name="subscriber"/>
+                            <field name="state" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="serial_number"/>
+                        </group>
+                        <group>
+                            <field name="Issue_request_date"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread" />
+                    <field name="activity_ids" widget="mail_activity" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="register_book_search" model="ir.ui.view">
+        <field name="name">Register Book Search</field>
+        <field name="model">book.register</field>
+        <field name="arch" type="xml">
+            <search>
+                <group expand="1" string="group By">
+                    <filter string="Book SerialNumber" name="serial_number" context="{'group_by' : 'serial_number'}"/>
+                    <filter string="Book Subscriber" name="subscriber" context="{'group_by' : 'subscriber'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    
+</odoo>

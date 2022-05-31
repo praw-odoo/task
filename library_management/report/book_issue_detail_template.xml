@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="book_issue_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="text-center">
+                            <strong> Book Issue Details </strong>
+                        </div>
+                        <table class="table table-bordered table-striped mt-3">
+                            <tbody class="border-top">
+                                <tr class="border-bottom">
+                                    <td class="text-center">
+                                        <strong>Student Name</strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="doc.name"/>
+                                    </td>
+                                </tr>
+                                <tr class="border-bottom">
+                                    <td class="text-center">
+                                        <strong>  User Id </strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="doc.user_ids.name"/>
+                                    </td>
+                                </tr>
+                                <tr class="border-bottom">
+                                    <td class="text-center">
+                                        <strong> Type</strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="doc.type_of"/>
+                                    </td>
+                                </tr>
+                                <tr class="border-bottom">
+                                    <td class="text-center">
+                                        <strong> Student Mobile number </strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="doc.mobile_number"/>
+                                    </td>
+                                </tr>
+                                <tr class="border-bottom">
+                                    <td class="text-center">
+                                        <strong>Book Name</strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="doc.book_name.name"/>
+                                    </td>
+                                </tr>
+                                <tr class="border-bottom">
+                                    <td class="text-center">
+                                        <strong> Book ISBN No. </strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="doc.book_details"/>
+                                    </td>
+                                </tr>
+                                <tr class="border-bottom">
+                                    <td class="text-center">
+                                        <strong> Username Of Student</strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="doc.username_of_student"/>
+                                    </td>
+                                </tr>
+                                <tr class="border-bottom">
+                                    <td class="text-center">
+                                        <strong> Date </strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="doc.date"/>
+                                    </td>
+                                </tr>
+                                <tr class="border-bottom">
+                                    <td class="text-center">
+                                        <strong>Book Return</strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="doc.book_return"/>
+                                    </td>
+                                </tr>
+                                <tr class="border-bottom">
+                                    <td class="text-center">
+                                        <strong>Total Book Fine</strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="doc.book_fine"/>
+                                    </td>
+                                </tr>
+                                <tr class="border-bottom">
+                                    <td class="text-center">
+                                        <strong> Book Return Day</strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="doc.book_return_day"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

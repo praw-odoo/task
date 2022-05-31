@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Custom Header -->
+
+    <template id="custom_external_layout_standard" inherit_id="web.external_layout_standard">
+        <xpath expr="//div[1]" position="replace">
+            <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+                <div class="row" style="font-family : 'Trebuchet MS' , 'sans-serif;">
+    
+                    <div class="col-4 mb4">
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="max-height:80px;" alt="Logo" />
+                    </div>
+
+                    <div class="col-7 mb4">
+                        <span>
+                            Address: 2HV9+JP6, <br />
+                            Nr. Income Tax Office, <br />
+                            Ashram Road, <br />
+                            Ahmedabad, <br />
+                            Gujarat 380014 <br />
+                            Phone: 079 2754 0746
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        </xpath>
+
+        <!-- Custom Footer -->
+        <xpath expr="//div/div[hasclass('text-center')]" position="replace">
+
+            <div class="text-center" style="border-top: 1px solid black;">
+                <div class="row" style="font-family : 'Trebuchet MS' , 'sans-serif;">
+                    <div class="col-5 mb4 text-center">
+                        <div t-if="report_type == 'pdf'" class="text-muted">
+                            Page:
+                            <li class="list-inline-item" />
+                            <strong>
+                                <span class="page" />
+                                /
+                                <span class="topage" />
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

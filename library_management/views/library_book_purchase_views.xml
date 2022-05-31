@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="purchase_order_inherit_form" model="ir.ui.view">
+        <field name="name">product.order.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name = "inherit_id" ref = "purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            
+            <field name ="partner_id"  position = "attributes">
+                <attribute name = "string">Book Seller</attribute>
+            </field>
+
+            <field name ="partner_ref"  position = "attributes">
+                <attribute name = "invisible">1</attribute>
+            </field>   
+
+            <field name ="taxes_id"  position = "attributes">
+                <attribute name = "invisible">1</attribute>
+            </field>
+
+            <field name ="company_id"  position = "attributes">
+                <attribute name = "invisible">1</attribute>
+            </field>
+
+            <field name ="currency_id"  position = "attributes">
+                <attribute name = "invisible">1</attribute>
+            </field>
+
+            <field name ="tax_totals_json"  position = "attributes">
+                <attribute name = "tax_totals_json">1</attribute>
+            </field>
+        
+            <xpath expr="//page[@name='purchase_delivery_invoice']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="purchase_order_inherit_tree" model="ir.ui.view">
+        <field name="name">product.order.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name = "inherit_id" ref = "purchase.purchase_order_tree" />
+        <field name="arch" type="xml">
+
+            <field name ="origin"  position = "attributes">
+                <attribute name = "invisible">1</attribute>
+            </field>
+
+            <field name ="company_id"  position = "attributes">
+                <attribute name = "invisible">1</attribute>
+            </field>
+
+            <field name ="partner_id"  position = "attributes">
+                <attribute name = "string">Book Seller</attribute>
+            </field>
+            
+        </field>
+    </record>
+
+    <record id="purchase_order_inherit_issue" model="ir.ui.view">
+        <field name="name">product.template</field>
+        <field name="model">product.template</field>
+        <field name = "inherit_id" ref = "product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='invoicing']" position="after">
+                <page name="name" string="Issue">
+                    <field name="book_purchase_ids" >
+                        <tree>
+                            <field name="name" />
+                            <field name="Email_id" />
+                            <field name="mobile_number" />
+                            <field name="username_of_student" />
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

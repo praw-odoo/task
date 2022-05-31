@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="send_book_submission_reminder_email" model="ir.cron">
+        <field name="name">Send Book Submission Reminder Email</field>
+        <field name="active" eval="True"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="state">code</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="model_id" ref="library_management.model_book_issuedata"/>
+        <field name="code">
+buffer_days = 3
+date = (datetime.datetime.now() + datetime.timedelta(days=buffer_days)).strftime("%Y-%m-%d 00:00:00")
+books_to_submit = record.env['book.issuedata'].search([('book_return''&lt;', date)])
+mail_template = env.ref('library_management.book_submission_reminder_mail')
+for rec in books_to_submit:
+    mail_template.send_mail(rec.id, force_send=True)
+        </field>
+    </record>
+</odoo>

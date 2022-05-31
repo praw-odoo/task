@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List View For Members Verification -->
+    <record id="members_verification_tree" model="ir.ui.view">
+        <field name="name">Members Verification</field>
+        <field name="model">members.verification</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="user_ids" optional="show"/>
+                <field name="type_of" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View For Members Verification -->
+    <record id="members_verification_form" model="ir.ui.view">
+        <field name="name">Members Verification</field>
+        <field name="model">members.verification</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="user_ids"/>
+                        </group>
+                        <group>
+                            <field name="type_of"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+</odoo>

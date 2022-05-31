@@ -9,13 +9,12 @@
     "category": "Customizations",
     "version": "15.0.1.0.0",
     "license": "LGPL-3",
-    'depends': ['product', 'stock'],
+    'depends': ['product', 'stock','purchase','sale_management'],
     'data': [
         'data/sequence.xml',
         'views/product_packaging_views.xml',
         'views/stock_package_type.xml'
     ],
-    'pre_init_hook': '_create_barcode_sequence',
     'application': False,
     'installable': True,
     'auto_install': False,

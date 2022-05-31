@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="My_site_opp" model="website.menu">
+        <field name="name">My Profile</field>
+        <field name="url">/myprofile</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">20</field>
+    </record>
+
+    <record id="books" model="website.menu">
+        <field name="name">Books</field>
+        <field name="url">/books</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">20</field>
+    </record>
+
+    <record id="my_books" model="website.menu">
+        <field name="name">My Book</field>
+        <field name="url">/mybooks</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">20</field>
+    </record>
+
+    <record id="my_req_books" model="website.menu">
+        <field name="name">Request Book</field>
+        <field name="url">/requestbook</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">20</field>
+    </record>
+
+    <record id="my_request_books" model="website.menu">
+        <field name="name">My Request Books</field>
+        <field name="url">/myrequestbook</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence" type="int">20</field>
+    </record>
+</odoo>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="book_detail_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="text-center">
+                            <strong> Book Details </strong>
+                        </div>
+                        <table class="table table-bordered table-striped mt-3">
+                            <tbody class="border-top">
+                                <tr>
+                                    <td class="text-center">
+                                        <strong> Book Name </strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="doc.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">
+                                        <strong> ISBN Number </strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="doc.isbn"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">
+                                        <strong> Book Cost </strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="doc.standard_price"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">
+                                        <strong> Book Author </strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-foreach="doc" t-as="book">
+                                            <span t-field="book.book_author_ids"></span>
+                                        </t>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">
+                                        <strong> Book Return Days </strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="doc.return_day"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">
+                                        <strong> Total Book Copy </strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="doc.total_book_copy"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">
+                                        Avilable Books
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="doc.available_books"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">
+                                        <strong> Total Issue Book </strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-esc="doc.total_issue_book"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

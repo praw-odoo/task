@@ -8,7 +8,7 @@
     'author': 'Odoo Ps',
     'version': '1.0.0',
 
-    'depends': ['stock','purchase','sale_management'],
+    'depends': ['stock','purchase'],
 
     'data': [
         "views/product_supplierinfo.xml",

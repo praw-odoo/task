@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Template For Members Profile Details-->
+    <template id="my_profile_details">
+        <div t-call="website.layout">
+            <div class="wrap m-2">
+                <div class="container m-6" style="width:50%">
+                    <h2 class="card-title">
+                    </h2>
+                    <t t-foreach="my_profile_details" t-as="p">
+                        <table class='table'>
+                            <tr>
+                                <div style="font-size:17px;">
+                                    <td style="margin:8px;">
+                                        <b>Name: </b>
+                                    </td>
+                                    <td>
+                                        <span style="font-size:15px;" t-out="p.name"/>
+                                    </td>
+                                </div>
+                            </tr>
+                            <tr>
+                                <div style="font-size:17px;">
+                                    <td>
+                                        <b>Email Id: </b>
+                                    </td>
+                                    <td>
+                                        <span style="font-size:15px;" t-out="p.Email_id"/>
+                                    </td>
+                                </div>
+                            </tr>
+                            <tr>
+                                <div style="font-size:17px;">
+                                    <td>
+                                        <b>Mobile Mumber: </b>
+                                    </td>
+                                    <td>
+                                        <span style="font-size:15px;" t-out="p.mobile_number"/>
+                                    </td>
+                                </div>
+                            </tr>
+                            <tr>
+                                <div style="font-size:17px;">
+                                    <td>
+                                        <b>User Type: </b>
+                                    </td>
+                                    <td>
+                                        <span style="font-size:15px;" t-out="p.type_of"/>
+                                    </td>
+                                </div>
+                            </tr>
+                            <tr>
+                                <div style="font-size:17px;">
+                                    <td>
+                                        <b>User Id: </b>
+                                    </td>
+                                    <td>
+                                        <span style="font-size:15px;" t-out="p.user_ids"/>
+                                    </td>
+                                </div>
+                            </tr>
+                            <tr>
+                                <div style="font-size:17px;">
+                                    <td>
+                                        <b>Book Issue: </b>
+                                    </td>
+                                    <td>
+                                        <span style="font-size:15px;" t-out="issue"/>
+                                    </td>
+                                </div>
+                            </tr>
+                            <tr>
+                                <div style="font-size:17px;">
+                                    <td>
+                                        <b>Book Request: </b>
+                                    </td>
+                                    <td>
+                                        <span style="font-size:15px;" t-out="request_book"/>
+                                    </td>
+                                </div>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </t>
+                </div>
+
+            </div>
+        </div>
+    </template>
+
+</odoo>

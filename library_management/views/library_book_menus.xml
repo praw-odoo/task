@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Menuitems For Library Management -->
+    <record id="book_stock_action" model="ir.actions.act_window">
+        <field name="name">Books</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <record id="library_bookrequest_action" model="ir.actions.act_window">
+        <field name="name">Book Request</field>
+        <field name="res_model">book.request</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="book_purchase_action" model="ir.actions.act_window">
+        <field name="name">Book Purchase</field>
+        <field name="res_model">purchase.order</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <record id="student_registration_action" model="ir.actions.act_window">
+        <field name="name">Register Members</field>
+        <field name="res_model">members.registration</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="book_issue_data_action" model="ir.actions.act_window">
+        <field name="name">Book Issue Details</field>
+        <field name="res_model">book.issuedata</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem sequence="0" id="menu_gvp" name="LMS" web_icon="library_management,static/description/icon.jpeg" />
+    <menuitem id="menu_gvp_root" parent="menu_gvp"  name="Library" />
+    <menuitem id="menu_gvp_root_menu2" parent="menu_gvp_root"  name="Books" action="book_stock_action"/>
+    <menuitem id="menu_gvp_root_menu1" parent="menu_gvp_root"  name="Register Members"  action="student_registration_action"/>
+    <menuitem id="menu_gvp_root_menu4" parent="menu_gvp_root"  name="Book Request"  action="library_bookrequest_action"/>
+    <menuitem id="menu_gvp_root_menu5" parent="menu_gvp_root"  name="Book Puchase"  action="book_purchase_action"/>
+    <menuitem id="menu_gvp_root_menu7" parent="menu_gvp_root"  name="Book Issue Details"  action="book_issue_data_action"/>
+
+</odoo>

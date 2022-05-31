@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="book_detail_report" model="ir.actions.report">
+        <field name="name">Book Detail Report</field>
+        <field name="model">product.template</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">library_management.book_detail_template</field>
+        <field name="report_file">library_management.book_detail_template</field>
+        <field name="binding_model_id" ref="model_product_template"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

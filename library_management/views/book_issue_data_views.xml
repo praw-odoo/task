@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- List View For Book Issue Data -->
+    <record id="book_issue_data_tree" model="ir.ui.view">
+        <field name="name">Book Issue Data</field>
+        <field name="model">book.issuedata</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="user_ids" optional="show"/>
+                <field name="type_of" optional="show"/>
+                <field name="name" optional="show"/>
+                <field name="book_name" optional="show"/>
+                <field name="book_details" optional="show"/>
+                <field name="username_of_student" optional="show"/>
+                <field name="mobile_number" optional="show"/>
+                <field name="date" optional="show"/>
+                <field name="book_return" optional="show"/>
+                <field name="book_return_day" optional="show"/>
+                <field name="book_fine" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View For Book Issue Data -->
+    <record id="book_issue_data_form" model="ir.ui.view">
+        <field name="name">Book Issue Data</field>
+        <field name="model">book.issuedata</field>
+        <field name="arch" type="xml">
+            <!-- <header> -->
+                <!-- <button name="return_book" type="object" class="fa fa fa-undo" string="Book Return"/> -->
+                <!-- <button name="issue_book" type="object" string="Book Issue" class="fa fa-check-circle"/> -->
+            <!-- </header> -->
+
+            <sheet>
+                <form>
+
+
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="user_ids"/>
+                            <field name="mobile_number"/>
+                            <field name="book_details"/>
+                            <field name="book_return"/>
+                            <field name="book_fine"/>
+                        </group>
+                        <group>
+                            <field name="book_name"/>
+                            <field name="type_of"/>
+                            <field name="username_of_student"/>
+                            <field name="date"/>
+                            <field name="book_return_day"/>
+                            <field name="renew_times"/>
+                        </group>
+                    </group>
+                </form>
+
+            </sheet>
+            <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="message_ids" widget="mail_thread"/>
+                <field name="activity_ids" widget="mail_activity"/>
+            </div>
+        </field>
+    </record>
+
+</odoo>

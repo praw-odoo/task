@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Template For Library Avilable View Book Details -->
+    <template id="book_details">
+        <div t-call="website.layout">
+            <div class="wrap m-2">
+                <div class="container m-6" style="width:50%">
+                    <h2 class="card-title">
+                        <t t-out="book.sudo().name"/>
+                    </h2>
+                    <table class='table'>
+                        <tr>
+                            <div style="font-size:17px;">
+                                <td style="margin:8px;">
+                                    <b>Book Author: </b>
+                                </td>
+                                <td>
+                                    <t t-foreach="book.sudo().book_author_ids" t-as="author">
+                                        <span style="font-size:15px;" t-out="author.name"/>
+                                        ,
+                                    </t>
+                                </td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div style="font-size:17px;">
+                                <td>
+                                    <b>ISBN Number: </b>
+                                </td>
+                                
+                                <td>
+                                    <span style="font-size:15px;" t-out="book.sudo().isbn"/>
+                                </td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div style="font-size:17px;">
+                                <td>
+                                    <b>Book Category: </b>
+                                </td>
+                                <td>
+                                    <span style="font-size:15px;" t-out="book.sudo().categ_id.name"/>
+                                </td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div style="font-size:17px;">
+                                <td>
+                                    <b>Price: </b>
+                                </td>
+                                <td>
+                                    <span style="font-size:15px;" t-out="book.sudo().standard_price"/>
+                                </td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <div style="font-size:17px;">
+                                <td>
+                                    <b>Department: </b>
+                                </td>
+
+                                <td>
+                                    <span style="font-size:15px;" t-out="book.sudo().department_id.name"/>
+                                </td>
+                            </div>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <!-- <div class="float-right mt-3 mb-3">
+                        <a t-attf-href="/issue/#{book.sudo().id}/#{user.id}">
+                            <button class="btn btn-primary">Issue Book</button>
+                        </a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </template>
+
+</odoo>
