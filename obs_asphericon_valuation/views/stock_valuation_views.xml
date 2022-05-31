@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+        <!-- form view -->
+        <record id="view_asph_valuation_form" model="ir.ui.view">
+            <field name="name">asph.inventory.valuation.form</field>
+            <field name="model">asph.inventory.valuation</field>
+            <field name="arch" type="xml">
+                <form string="ASPH Inventory Valuation">
+                    <sheet string="ASPH Inventory Valuation">
+                        <group>
+                            <group>
+                                <field name="product_id" required="1"/>
+                                <field name="valuation_date"/>
+                            </group>
+                            <group>
+                                <field name="am_cost"/>
+                                <field name="retrograde_cost"/>
+                                <field name="lowest_value" readonly="1" />
+                                <field name="currency_id" invisible="1" />
+                                <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company" required="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- tree view -->
+        <record id="view_asph_valuation_tree" model="ir.ui.view">
+            <field name="name">asph.inventory.valuation.tree</field>
+            <field name="model">asph.inventory.valuation</field>
+            <field name="arch" type="xml">
+                <tree string="ASPH Inventory Valuation" default_order="valuation_date desc">
+                    <field name="product_name"/>
+                    <field name="product_default_code"/>
+                    <field name="valuation_date"/>
+                    <field name="am_cost"/>
+                    <field name="retrograde_cost"/>
+                    <field name="lowest_value" />
+                    <field name="company_id" />
+                    <field name="currency_id" invisible="1" />
+                </tree>
+            </field>
+        </record>
+        <!-- search view -->
+        <record id="view_asph_valuation_search" model="ir.ui.view">
+            <field name="name">asph.inventory.valuation.search</field>
+            <field name="model">asph.inventory.valuation</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="product_id"/>
+                    <filter string="Current Valuation" name="current_valution"
+                        domain="[]" context="{'latest_valution': 1}" />
+                </search>
+            </field>
+        </record>
+        <!-- action -->
+        <record id="action_asph_inventory_valuation" model="ir.actions.act_window">
+            <field name="name">ASPH Inventory Valuation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">asph.inventory.valuation</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_asph_inventory_valuation" name="ASPH Inventory Valuation" parent="stock.menu_warehouse_report" sequence="101" action="obs_asphericon_valuation.action_asph_inventory_valuation"/>
+    </data>
+</odoo>

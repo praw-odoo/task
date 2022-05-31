@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.rule" id="record_shared_multi_company_rule_valuation_asph">
+        <field name="name">ASPH Valuation</field>
+        <field name="model_id" ref="obs_asphericon_valuation.model_asph_inventory_valuation"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'in', company_ids)]</field>
+    </record>
+</odoo>
